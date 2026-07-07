@@ -1,10 +1,105 @@
 {
   "items": [
-    { "key": "boyz",    "title": "4 the boyz",      "image": "assets/art/couple.jpg",   "url": "/projects/4the_boyz/" },
-    { "key": "only",    "title": "only you and me", "image": "assets/art/kingkong.jpg", "url": "" },
-    { "key": "japan",   "title": "japan",           "image": "assets/art/mune.jpg",     "url": "/projects/japan/" },
-    { "key": "ukraine", "title": "FROM ukraine",    "image": "assets/art/dogs.jpg",     "url": "/projects/ukraine/" },
-    { "key": "strip",   "title": "strip strip",     "image": "assets/art/staffie.jpg",  "url": "/projects/strip/" },
-    { "key": "feet",    "title": "Feet",            "image": "assets/art/whisper.jpg",  "url": "" }
+    {
+      "key": "boyz",
+      "title": "4 the boyz",
+      "image": "/assets/art/couple.jpg",
+      "url": "/projects/4the_boyz/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/proj/4the_boyz/g1.jpg",
+        "/assets/proj/4the_boyz/g2.jpg",
+        "/assets/proj/4the_boyz/g3.jpg",
+        "/assets/proj/4the_boyz/g4.jpg",
+        "/assets/proj/4the_boyz/g5.jpg",
+        "/assets/proj/4the_boyz/g6.jpg"
+      ]
+    },
+    {
+      "key": "only",
+      "title": "only you and me",
+      "image": "/assets/art/kingkong.jpg",
+      "url": "",
+      "gallery": []
+    },
+    {
+      "key": "japan",
+      "title": "japan",
+      "image": "/assets/art/mune.jpg",
+      "url": "/projects/japan/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/proj/japan/g1.jpg",
+        "/assets/proj/japan/g2.jpg",
+        "/assets/proj/japan/g3.jpg",
+        "/assets/proj/japan/g4.jpg",
+        "/assets/proj/japan/g5.jpg",
+        "/assets/proj/japan/g6.jpg",
+        "/assets/proj/japan/g7.jpg",
+        "/assets/proj/japan/g8.jpg",
+        "/assets/proj/japan/g9.jpg",
+        "/assets/proj/japan/g10.jpg",
+        "/assets/proj/japan/g11.jpg",
+        "/assets/proj/japan/g12.jpg",
+        "/assets/proj/japan/g13.jpg",
+        "/assets/proj/japan/g14.jpg"
+      ]
+    },
+    {
+      "key": "ukraine",
+      "title": "FROM ukraine",
+      "image": "/assets/art/dogs.jpg",
+      "url": "/projects/ukraine/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/proj/ukraine/g1.jpg",
+        "/assets/proj/ukraine/g2.jpg",
+        "/assets/proj/ukraine/g3.jpg",
+        "/assets/proj/ukraine/g4.jpg",
+        "/assets/proj/ukraine/g5.jpg",
+        "/assets/proj/ukraine/g6.jpg",
+        "/assets/proj/ukraine/g7.jpg",
+        "/assets/proj/ukraine/g8.jpg",
+        "/assets/proj/ukraine/g9.jpg",
+        "/assets/proj/ukraine/g10.jpg",
+        "/assets/proj/ukraine/g11.jpg",
+        "/assets/proj/ukraine/g12.jpg",
+        "/assets/proj/ukraine/g13.jpg",
+        "/assets/proj/ukraine/g14.jpg",
+        "/assets/proj/ukraine/g15.jpg",
+        "/assets/proj/ukraine/g16.jpg",
+        "/assets/proj/ukraine/g17.jpg",
+        "/assets/proj/ukraine/g18.jpg",
+        "/assets/proj/ukraine/g19.jpg"
+      ]
+    },
+    {
+      "key": "strip",
+      "title": "strip strip",
+      "image": "/assets/art/staffie.jpg",
+      "url": "/projects/strip/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/proj/strip/g1.jpg",
+        "/assets/proj/strip/g2.jpg",
+        "/assets/proj/strip/g3.jpg",
+        "/assets/proj/strip/g4.jpg",
+        "/assets/proj/strip/g5.jpg",
+        "/assets/proj/strip/g6.jpg",
+        "/assets/proj/strip/g7.jpg",
+        "/assets/proj/strip/g8.jpg",
+        "/assets/proj/strip/g9.jpg",
+        "/assets/proj/strip/g10.jpg",
+        "/assets/proj/strip/g11.jpg",
+        "/assets/proj/strip/g12.jpg"
+      ]
+    },
+    {
+      "key": "feet",
+      "title": "Feet",
+      "image": "/assets/art/whisper.jpg",
+      "url": "",
+      "gallery": []
+    }
   ]
 }

@@ -1,7 +1,11 @@
 backend:
   name: github
   repo: kgomasa2/loriashvili   # <-- ЗМІНИ на свій github-user/repo, якщо інший
-  branch: main
+  branch: master
+
+# Локальна розробка адмінки (діє ТІЛЬКИ на localhost, у проді ігнорується):
+#   npx decap-server   → потім відкрити http://localhost:4173/admin/
+local_backend: true
 
 # Куди CMS завантажує НОВІ картинки (існуючі лишаються за своїми шляхами)
 media_folder: "assets/uploads"
@@ -58,6 +62,20 @@ collections:
             fields:
               - { label: "Заголовок", name: title, widget: string }
               - { label: "Зображення (превʼю при наведенні)", name: image, widget: image }
+              - label: "Розкладка галереї (на сторінці проєкту)"
+                name: galleryLayout
+                widget: select
+                required: false
+                default: offset
+                options:
+                  - { label: "Колаж (зі зсувом)", value: offset }
+                  - { label: "Сітка (2 колонки)", value: grid }
+                  - { label: "Стрічка (велика колонка)", value: stack }
+              - label: "Фото галереї (на сторінці проєкту)"
+                name: gallery
+                widget: list
+                required: false
+                field: { label: "Фото", name: image, widget: image }
               - { label: "Посилання на сторінку (не міняти)", name: url, widget: string, required: false }
               - { label: "Ключ блоку (НЕ міняти)", name: key, widget: string }
 
@@ -81,5 +99,19 @@ collections:
               - { label: "Характеристики (кожен рядок з нового рядка)", name: specs, widget: text }
               - { label: "Обкладинка (у каталозі)", name: cover, widget: image }
               - { label: "Головне фото (на сторінці товару)", name: hero, widget: image, required: false }
+              - label: "Розкладка галереї (на сторінці товару)"
+                name: galleryLayout
+                widget: select
+                required: false
+                default: offset
+                options:
+                  - { label: "Колаж (зі зсувом)", value: offset }
+                  - { label: "Сітка (2 колонки)", value: grid }
+                  - { label: "Стрічка (велика колонка)", value: stack }
+              - label: "Фото галереї (на сторінці товару)"
+                name: gallery
+                widget: list
+                required: false
+                field: { label: "Фото", name: image, widget: image }
               - { label: "Адреса сторінки (напр. /shop/my_book/)", name: url, widget: string }
               - { label: "Slug (папка товару, НЕ міняти)", name: slug, widget: string }

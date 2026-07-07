@@ -119,6 +119,29 @@
     $all(".s-grid").forEach(function (g) { g.innerHTML = html; });
   }
 
+  /* ---- galleries (preset layouts, filled from JSON) ---- */
+  function imgPath(x) {
+    if (x && typeof x === "object") return x.image || x.src || x.path || "";
+    return x;
+  }
+  function renderDesktopGallery(el, images, layout) {
+    if (!el) return;
+    images = (images || []).map(imgPath).filter(Boolean);
+    if (!images.length) { el.innerHTML = ""; el.style.display = "none"; return; }
+    el.classList.add("cms-gallery");
+    el.setAttribute("data-layout", layout || "offset");
+    el.removeAttribute("style"); // drop any hand-tuned inline height
+    el.innerHTML = images.map(function (src) {
+      return '<div class="cms-g"><img src="' + esc(abs(src)) + '" alt="" loading="lazy"></div>';
+    }).join("");
+  }
+  function renderMobileGallery(el, images) {
+    if (!el) return;
+    el.innerHTML = (images || []).map(imgPath).filter(Boolean).map(function (src) {
+      return '<img src="' + esc(abs(src)) + '" alt="" loading="lazy">';
+    }).join("");
+  }
+
   /* ---- shop item detail (/shop/<slug>/) ---- */
   function slugFromPath() {
     var parts = location.pathname.split("/").filter(Boolean);
@@ -139,6 +162,21 @@
         e.setAttribute("href", "mailto:" + SITE_EMAIL + "?subject=" + encodeURIComponent("Order: " + it.name));
       });
     }
+    renderDesktopGallery($(".desktop .si-gallery"), it.gallery, it.galleryLayout);
+    renderMobileGallery($(".mobile .si-m-gallery"), it.gallery);
+  }
+
+  /* ---- project detail (/projects/<slug>/) ---- */
+  function samePath(a, b) {
+    function n(x) { return (x || "").replace(/\/+$/, ""); }
+    return n(a) === n(b);
+  }
+  function fillProjectItem(projects) {
+    if (!projects || !projects.items) return;
+    var it = projects.items.filter(function (x) { return x.url && samePath(x.url, location.pathname); })[0];
+    if (!it) return;
+    renderDesktopGallery($(".desktop .pd-gallery"), it.gallery, it.galleryLayout);
+    renderMobileGallery($(".mobile .pd-gallery"), it.gallery);
   }
 
   /* ---- boot ---- */
@@ -156,5 +194,6 @@
     fillProjects(projects);
     if ($(".s-grid")) fillShopGrid(shop);
     if ($(".si-name")) fillShopItem(shop);
+    if ($(".pd-gallery")) fillProjectItem(projects);
   });
 })();

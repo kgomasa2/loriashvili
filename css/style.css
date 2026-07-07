@@ -305,3 +305,39 @@ ul { list-style: none; }
   .m-foot-sofiya { width: 55%; height: auto; margin: 3rem auto 0.5rem; }
   .m-foot-word { width: 100%; height: auto; margin: 0 auto; }
 }
+
+/* ============================================================
+   CMS GALLERY PRESETS
+   Rule-based layouts filled by js/content.js from JSON.
+   Client picks a preset ("stack" | "grid" | "offset") in the
+   admin and uploads photos — positions are automatic, so any
+   number of photos works and no coordinates are ever entered.
+   Applied to the DESKTOP gallery container only; mobile always
+   falls back to the existing single-column styles.
+   ============================================================ */
+.cms-gallery { position: static !important; height: auto !important; margin: 6rem auto 0; }
+.cms-gallery .cms-g { display: block; }
+.cms-gallery .cms-g img { display: block; width: 100%; height: auto; }
+
+/* --- preset: stack (large centered column) --- */
+.cms-gallery[data-layout="stack"] { display: flex; flex-direction: column; align-items: center; gap: 6rem; width: 144rem; }
+.cms-gallery[data-layout="stack"] .cms-g { width: 100rem; max-width: 92%; }
+
+/* --- preset: grid (two-column masonry) --- */
+.cms-gallery[data-layout="grid"] { column-count: 2; column-gap: 5rem; width: 122rem; max-width: 92%; }
+.cms-gallery[data-layout="grid"] .cms-g { break-inside: avoid; margin-bottom: 5rem; }
+
+/* --- preset: offset (editorial alternating scatter) --- */
+.cms-gallery[data-layout="offset"] { display: flex; flex-direction: column; gap: 7rem; width: 130rem; max-width: 94%; }
+.cms-gallery[data-layout="offset"] .cms-g { width: 64rem; }
+.cms-gallery[data-layout="offset"] .cms-g:nth-child(4n+1) { align-self: flex-start; width: 58rem; }
+.cms-gallery[data-layout="offset"] .cms-g:nth-child(4n+2) { align-self: flex-end;   width: 74rem; }
+.cms-gallery[data-layout="offset"] .cms-g:nth-child(4n+3) { align-self: center;     width: 90rem; }
+.cms-gallery[data-layout="offset"] .cms-g:nth-child(4n)   { align-self: flex-end;   width: 50rem; }
+
+@media (max-width: 767px) {
+  /* on phones every preset becomes a simple full-width column */
+  .cms-gallery,
+  .cms-gallery[data-layout] { display: flex; flex-direction: column; align-items: stretch; gap: 1.5rem; width: 100%; column-count: 1; padding: 0 1.5rem; }
+  .cms-gallery .cms-g { width: 100% !important; align-self: stretch !important; margin: 0 !important; }
+}

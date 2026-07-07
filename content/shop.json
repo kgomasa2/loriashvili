@@ -1,13 +1,176 @@
 {
   "items": [
-    { "slug": "bangpussy",      "name": "BANGPUSSY",                "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/bangpussy.jpg",      "hero": "assets/shop/bangpussy/g1.jpg",      "url": "/shop/bangpussy/" },
-    { "slug": "chiken_wing",    "name": "CHIKEN WING",              "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/chiken_wing.jpg",    "hero": "assets/shop/chiken_wing/g1.jpg",    "url": "/shop/chiken_wing/" },
-    { "slug": "fairytales",     "name": "FAIRYTALES FOR THE NIGHT", "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/fairytales.jpg",     "hero": "assets/shop/fairytales/g1.jpg",     "url": "/shop/fairytales/" },
-    { "slug": "ici_et_la",      "name": "ICI ET LA",                "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/ici_et_la.jpg",      "hero": "assets/shop/ici_et_la/g1.jpg",      "url": "/shop/ici_et_la/" },
-    { "slug": "motoyoshino",    "name": "MOTOYOSHINO",              "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/motoyoshino.jpg",    "hero": "assets/shop/motoyoshino/g1.jpg",    "url": "/shop/motoyoshino/" },
-    { "slug": "motoyoshino_2",  "name": "MOTOYOSHINO 2",            "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/motoyoshino_2.jpg",  "hero": "assets/shop/motoyoshino_2/g1.jpg",  "url": "/shop/motoyoshino_2/" },
-    { "slug": "my_last_voyage", "name": "MY LAST VOYAGE",           "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/my_last_voyage.jpg", "hero": "assets/shop/my_last_voyage/g1.jpg", "url": "/shop/my_last_voyage/" },
-    { "slug": "only_u_and_me",  "name": "ONLY U AND ME",            "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/only_u_and_me.jpg",  "hero": "assets/shop/only_u_and_me/g1.jpg",  "url": "/shop/only_u_and_me/" },
-    { "slug": "my_book",        "name": "MY BOOK",                  "price": "$60", "publisher": "published by PAPERWORK", "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies", "cover": "assets/shop/my_book.jpg",        "hero": "assets/shop/my_book/g1.jpg",        "url": "/shop/my_book/" }
+    {
+      "slug": "bangpussy",
+      "name": "BANGPUSSY",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/bangpussy.jpg",
+      "hero": "/assets/shop/bangpussy/g1.jpg",
+      "url": "/shop/bangpussy/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/bangpussy/g2.jpg",
+        "/assets/shop/bangpussy/g3.jpg",
+        "/assets/shop/bangpussy/g4.jpg",
+        "/assets/shop/bangpussy/g5.jpg",
+        "/assets/shop/bangpussy/g6.jpg",
+        "/assets/shop/bangpussy/g7.jpg"
+      ]
+    },
+    {
+      "slug": "chiken_wing",
+      "name": "CHIKEN WING",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/chiken_wing.jpg",
+      "hero": "/assets/shop/chiken_wing/g1.jpg",
+      "url": "/shop/chiken_wing/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/chiken_wing/g2.jpg",
+        "/assets/shop/chiken_wing/g3.jpg",
+        "/assets/shop/chiken_wing/g4.jpg",
+        "/assets/shop/chiken_wing/g5.jpg",
+        "/assets/shop/chiken_wing/g6.jpg",
+        "/assets/shop/chiken_wing/g7.jpg",
+        "/assets/shop/chiken_wing/g8.jpg",
+        "/assets/shop/chiken_wing/g9.jpg",
+        "/assets/shop/chiken_wing/g10.jpg"
+      ]
+    },
+    {
+      "slug": "fairytales",
+      "name": "FAIRYTALES FOR THE NIGHT",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/fairytales.jpg",
+      "hero": "/assets/shop/fairytales/g1.jpg",
+      "url": "/shop/fairytales/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/fairytales/g2.jpg",
+        "/assets/shop/fairytales/g3.jpg",
+        "/assets/shop/fairytales/g4.jpg",
+        "/assets/shop/fairytales/g5.jpg",
+        "/assets/shop/fairytales/g6.jpg",
+        "/assets/shop/fairytales/g7.jpg",
+        "/assets/shop/fairytales/g8.jpg"
+      ]
+    },
+    {
+      "slug": "ici_et_la",
+      "name": "ICI ET LA",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/ici_et_la.jpg",
+      "hero": "/assets/shop/ici_et_la/g1.jpg",
+      "url": "/shop/ici_et_la/",
+      "galleryLayout": "offset",
+      "gallery": []
+    },
+    {
+      "slug": "motoyoshino",
+      "name": "MOTOYOSHINO",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/motoyoshino.jpg",
+      "hero": "/assets/shop/motoyoshino/g1.jpg",
+      "url": "/shop/motoyoshino/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/motoyoshino/g2.jpg",
+        "/assets/shop/motoyoshino/g3.jpg",
+        "/assets/shop/motoyoshino/g4.jpg",
+        "/assets/shop/motoyoshino/g5.jpg",
+        "/assets/shop/motoyoshino/g6.jpg",
+        "/assets/shop/motoyoshino/g7.jpg"
+      ]
+    },
+    {
+      "slug": "motoyoshino_2",
+      "name": "MOTOYOSHINO 2",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/motoyoshino_2.jpg",
+      "hero": "/assets/shop/motoyoshino_2/g1.jpg",
+      "url": "/shop/motoyoshino_2/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/motoyoshino_2/g2.jpg",
+        "/assets/shop/motoyoshino_2/g3.jpg",
+        "/assets/shop/motoyoshino_2/g4.jpg",
+        "/assets/shop/motoyoshino_2/g5.jpg",
+        "/assets/shop/motoyoshino_2/g6.jpg"
+      ]
+    },
+    {
+      "slug": "my_last_voyage",
+      "name": "MY LAST VOYAGE",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/my_last_voyage.jpg",
+      "hero": "/assets/shop/my_last_voyage/g1.jpg",
+      "url": "/shop/my_last_voyage/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/my_last_voyage/g2.jpg",
+        "/assets/shop/my_last_voyage/g3.jpg",
+        "/assets/shop/my_last_voyage/g4.jpg",
+        "/assets/shop/my_last_voyage/g5.jpg",
+        "/assets/shop/my_last_voyage/g6.jpg",
+        "/assets/shop/my_last_voyage/g7.jpg",
+        "/assets/shop/my_last_voyage/g8.jpg"
+      ]
+    },
+    {
+      "slug": "only_u_and_me",
+      "name": "ONLY U AND ME",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/only_u_and_me.jpg",
+      "hero": "/assets/shop/only_u_and_me/g1.jpg",
+      "url": "/shop/only_u_and_me/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/only_u_and_me/g2.jpg",
+        "/assets/shop/only_u_and_me/g3.jpg",
+        "/assets/shop/only_u_and_me/g4.jpg",
+        "/assets/shop/only_u_and_me/g5.jpg",
+        "/assets/shop/only_u_and_me/g6.jpg",
+        "/assets/shop/only_u_and_me/g7.jpg",
+        "/assets/shop/only_u_and_me/g8.jpg",
+        "/assets/shop/only_u_and_me/g9.jpg"
+      ]
+    },
+    {
+      "slug": "my_book",
+      "name": "MY BOOK",
+      "price": "$60",
+      "publisher": "published by PAPERWORK",
+      "specs": "100 pages\nPerfect Bound\n5.82 X 8.26\nEdition of 100 copies",
+      "cover": "/assets/shop/my_book.jpg",
+      "hero": "/assets/shop/my_book/g1.jpg",
+      "url": "/shop/my_book/",
+      "galleryLayout": "offset",
+      "gallery": [
+        "/assets/shop/my_book/g2.jpg",
+        "/assets/shop/my_book/g3.jpg",
+        "/assets/shop/my_book/g4.jpg",
+        "/assets/shop/my_book/g5.jpg",
+        "/assets/shop/my_book/g6.jpg",
+        "/assets/shop/my_book/g7.jpg",
+        "/assets/shop/my_book/g8.jpg",
+        "/assets/shop/my_book/g9.jpg"
+      ]
+    }
   ]
 }
