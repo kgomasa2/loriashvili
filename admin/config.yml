@@ -66,8 +66,9 @@ collections:
                 name: galleryLayout
                 widget: select
                 required: false
-                default: offset
+                default: standard
                 options:
+                  - { label: "Стандартна (авто)", value: standard }
                   - { label: "Колаж (зі зсувом)", value: offset }
                   - { label: "Сітка (2 колонки)", value: grid }
                   - { label: "Стрічка (велика колонка)", value: stack }
@@ -103,8 +104,9 @@ collections:
                 name: galleryLayout
                 widget: select
                 required: false
-                default: offset
+                default: standard
                 options:
+                  - { label: "Стандартна (авто)", value: standard }
                   - { label: "Колаж (зі зсувом)", value: offset }
                   - { label: "Сітка (2 колонки)", value: grid }
                   - { label: "Стрічка (велика колонка)", value: stack }

@@ -75,6 +75,9 @@
       var target = h.querySelector("span") || h;
       target.addEventListener("mouseenter", function () {
         img.src = h.getAttribute("data-img");
+        // sit the preview just above the green plate of the hovered heading
+        var remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10;
+        photo.style.top = (h.offsetTop - photo.offsetHeight - remPx * 2) + "px";
         photo.classList.add("show");
         h.classList.add("active");
       });
@@ -165,6 +168,82 @@
     });
   }
 
+  /* ---- 7. horizontal wheel scroll for the homepage card carousel ---- */
+  function initHScroll() {
+    document.querySelectorAll(".d-cards").forEach(function (row) {
+      row.addEventListener("wheel", function (e) {
+        if (!e.deltaY) return;
+        var max = row.scrollWidth - row.clientWidth;
+        if (max <= 1) return;
+        var atStart = row.scrollLeft <= 0;
+        var atEnd = row.scrollLeft >= max - 1;
+        if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
+        row.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }, { passive: false });
+    });
+  }
+
+  /* ---- 8. data-href: headings / cards navigate on click ---- */
+  function initClickThrough() {
+    document.querySelectorAll("[data-href]").forEach(function (el) {
+      el.style.cursor = "pointer";
+      el.addEventListener("click", function (e) {
+        if (e.target.closest("a")) return;   // let real links win
+        var href = el.getAttribute("data-href");
+        if (href) location.href = href;
+      });
+    });
+  }
+
+  /* ---- 9. fit long card titles so cards never break ---- */
+  function fitOne(el, minPx) {
+    el.style.whiteSpace = "nowrap";
+    el.style.fontSize = "";
+    var size = parseFloat(getComputedStyle(el).fontSize);
+    var guard = 0;
+    while (el.scrollWidth > el.clientWidth + 1 && size > (minPx || 12) && guard++ < 80) {
+      size -= 1;
+      el.style.fontSize = size + "px";
+    }
+  }
+  function fitCardTitles() {
+    document.querySelectorAll(".s-card__name, .d-card__name").forEach(function (el) { fitOne(el, 14); });
+  }
+  function debounce(fn, ms) {
+    var t;
+    return function () { clearTimeout(t); t = setTimeout(fn, ms); };
+  }
+  function initFit() {
+    fitCardTitles();
+    window.addEventListener("load", fitCardTitles);
+    window.addEventListener("resize", debounce(fitCardTitles, 150));
+    var grid = document.querySelector(".s-grid");
+    if (grid && window.MutationObserver) {
+      new MutationObserver(fitCardTitles).observe(grid, { childList: true });
+    }
+  }
+
+  /* ---- 10. inclusive (monochrome) mode toggle ---- */
+  function initInclusive() {
+    var KEY = "incl_mode", on = false;
+    try { on = localStorage.getItem(KEY) === "1"; } catch (e) {}
+    document.body.classList.toggle("inclusive", on);
+    var btn = document.createElement("button");
+    btn.className = "incl-toggle";
+    btn.type = "button";
+    btn.setAttribute("aria-label", "Toggle inclusive high-contrast mode");
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+    btn.addEventListener("click", function () {
+      on = !on;
+      document.body.classList.toggle("inclusive", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      try { localStorage.setItem(KEY, on ? "1" : "0"); } catch (e) {}
+    });
+    document.body.appendChild(btn);
+  }
+
   /* ---- boot ---- */
   function boot() {
     document.querySelectorAll("[data-scramble]").forEach(initScramble);
@@ -172,6 +251,10 @@
     initProjects();
     initBurger();
     initNewsletter();
+    initHScroll();
+    initClickThrough();
+    initFit();
+    initInclusive();
     document.querySelectorAll(".d-band--telegram, .m-telegram").forEach(initTrail);
   }
 

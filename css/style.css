@@ -47,6 +47,9 @@ ul { list-style: none; }
 
 /* ---------------- HEADER ---------------- */
 /* transparent top-right cluster: red two-oval logo + mixed-font nav */
+/* pinned to the top; blends via difference so it stays legible over any band */
+.d-head { position: fixed; left: 0; top: 0; width: 144rem; height: 11rem; z-index: 20; pointer-events: none; mix-blend-mode: difference; }
+.d-head a { pointer-events: auto; }
 .d-head__logo { position: absolute; left: 82.8rem; top: 0.4rem; width: 13.3rem; height: 10.3rem; z-index: 6; }
 .d-head__logo img { width: 100%; height: 100%; }
 .d-head__link { position: absolute; color: var(--red); white-space: nowrap; z-index: 6; line-height: 1; }
@@ -136,11 +139,12 @@ ul { list-style: none; }
 .d-marquee span:nth-child(4) { left: 123.3rem; }
 
 /* horizontally scrollable card carousel */
-.d-cards { position: absolute; top: 414.8rem; left: 2.7rem; width: 138.6rem; height: 58rem; display: flex; gap: 2.3rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: var(--yellow) transparent; }
+.d-cards { position: absolute; top: 413.8rem; left: 2.7rem; width: 138.6rem; height: 58rem; padding: 1rem 0; display: flex; align-items: flex-start; gap: 2.3rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: var(--yellow) transparent; }
 .d-cards::-webkit-scrollbar { height: 0.8rem; }
 .d-cards::-webkit-scrollbar-thumb { background: var(--yellow); }
-.d-card { position: relative; flex: 0 0 53.5rem; width: 53.5rem; height: 55.14rem; background: var(--grey); }
-.d-card:hover { box-shadow: inset 0 0 0 0.7rem var(--green); }
+.d-card { position: relative; flex: 0 0 53.5rem; width: 53.5rem; height: 55.14rem; background: var(--grey); cursor: pointer; }
+/* green ring drawn outside the box so the grey plate never shrinks on hover */
+.d-card:hover { box-shadow: 0 0 0 0.7rem var(--green); }
 .d-card__media { position: absolute; left: 0.1rem; top: 0; width: 53.4rem; height: 39.8rem; overflow: hidden; }
 .d-card__media img { width: 100%; height: 100%; object-fit: cover; }
 /* hover overlay: yellow plate with two oval windows cut through to the photo */
@@ -186,15 +190,16 @@ ul { list-style: none; }
 /* fixed px sizing — decoupled from the fluid 1440-canvas rem */
 .nl-backdrop { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .nl-backdrop.open { opacity: 1; pointer-events: auto; }
-.nl-pop { width: clamp(300px, 88vw, 413px); max-height: 92vh; overflow: auto; background: var(--green); border-radius: 210px; padding: 20px 8% 34px; display: flex; flex-direction: column; align-items: center; text-align: center; transform: scale(0.9); transition: transform 0.3s ease; }
+/* wider capsule (ref node 149-979) — less vertical stretch, circular field + button */
+.nl-pop { width: clamp(320px, 94vw, 540px); max-height: 94vh; overflow: auto; background: var(--green); border-radius: 270px; padding: 34px 9% 40px; display: flex; flex-direction: column; align-items: center; text-align: center; transform: scale(0.9); transition: transform 0.3s ease; }
 .nl-backdrop.open .nl-pop { transform: scale(1); }
-.nl-pop__logo  { width: 98px; height: auto; }
-.nl-pop__title { margin-top: 6px; width: 100%; font-family: "EB Garamond SC", serif; font-size: 50px; letter-spacing: -4px; line-height: 0.92; color: var(--red); text-transform: uppercase; }
-.nl-pop__text  { margin-top: 14px; width: 74%; font-family: var(--arial); font-size: 11.8px; letter-spacing: -0.35px; line-height: 1.35; color: var(--red); }
-.nl-pop__form  { width: 66%; margin-top: 18px; display: flex; flex-direction: column; gap: 5px; }
-.nl-pop__input { width: 100%; height: 90px; border: 0; border-radius: 60px; background: #fff; text-align: center; font-family: var(--arial); font-size: 13px; letter-spacing: -0.35px; color: var(--red); outline: none; }
+.nl-pop__logo  { width: 112px; height: auto; }
+.nl-pop__title { margin-top: 10px; width: 100%; font-family: "EB Garamond SC", serif; font-size: 58px; letter-spacing: -4px; line-height: 0.92; color: var(--red); text-transform: uppercase; }
+.nl-pop__text  { margin-top: 16px; width: 66%; font-family: var(--arial); font-size: 13px; letter-spacing: -0.35px; line-height: 1.35; color: var(--red); }
+.nl-pop__form  { width: 100%; margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.nl-pop__input { width: 58%; aspect-ratio: 1 / 1; border: 0; border-radius: 50%; background: #fff; text-align: center; font-family: var(--arial); font-size: 15px; letter-spacing: -0.35px; color: var(--red); outline: none; }
 .nl-pop__input::placeholder { color: #9F9F9F; }
-.nl-pop__btn   { width: 100%; height: 90px; border: 0; border-radius: 60px; background: var(--red); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 21px; letter-spacing: -0.64px; text-transform: uppercase; cursor: pointer; }
+.nl-pop__btn   { width: 42%; aspect-ratio: 1 / 1; border: 0; border-radius: 50%; background: var(--red); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.64px; text-transform: uppercase; cursor: pointer; overflow: hidden; }
 .nl-pop__btn:hover { background: #d81f2a; }
 
 
@@ -209,7 +214,7 @@ ul { list-style: none; }
   .mobile section, .mobile footer, .mobile > .m-nav { position: relative; overflow: hidden; }
 
   /* NAV — transparent bar: red two-oval logo + burger */
-  .m-nav { display: flex; align-items: center; height: 5.2rem; background: var(--yellow); padding: 0 1.6rem; position: relative; z-index: 40; }
+  .m-nav { display: flex; align-items: center; height: 5.2rem; background: var(--yellow); padding: 0 1.6rem; position: sticky; top: 0; z-index: 40; }
   .m-nav__logo { flex: 0 0 auto; height: 3.6rem; }
   .m-nav__logo img { height: 100%; width: auto; }
   .m-burger { margin-left: auto; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; width: 4.4rem; height: 4.4rem; padding: 0.9rem 0.5rem; background: none; border: 0; cursor: pointer; }
@@ -335,9 +340,42 @@ ul { list-style: none; }
 .cms-gallery[data-layout="offset"] .cms-g:nth-child(4n+3) { align-self: center;     width: 90rem; }
 .cms-gallery[data-layout="offset"] .cms-g:nth-child(4n)   { align-self: flex-end;   width: 50rem; }
 
+/* --- preset: standard (default) — landscape full-width, portraits 2-up,
+       a lone portrait centred.  Orientation classes are set by content.js. --- */
+.cms-gallery[data-layout="standard"] { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 3rem; width: 134.3rem; max-width: 96%; }
+.cms-gallery[data-layout="standard"] .cms-g { width: 100%; }
+.cms-gallery[data-layout="standard"] .cms-g--port { width: calc((100% - 3rem) / 2); }
+
 @media (max-width: 767px) {
   /* on phones every preset becomes a simple full-width column */
   .cms-gallery,
   .cms-gallery[data-layout] { display: flex; flex-direction: column; align-items: stretch; gap: 1.5rem; width: 100%; column-count: 1; padding: 0 1.5rem; }
   .cms-gallery .cms-g { width: 100% !important; align-self: stretch !important; margin: 0 !important; }
 }
+
+/* ============================================================
+   INCLUSIVE (monochrome) MODE
+   Eye toggle (injected by main.js, all pages, persisted).
+   White background + black text everywhere; photos keep colour,
+   decorative marks/logos are rendered solid black.
+   ============================================================ */
+.incl-toggle { position: fixed; right: 1.6rem; bottom: 1.6rem; z-index: 210; width: 5rem; height: 5rem; display: flex; align-items: center; justify-content: center; padding: 0; background: #fff; border: 0.2rem solid var(--red); border-radius: 50%; color: var(--red); cursor: pointer; box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.25); }
+.incl-toggle svg { width: 3rem; height: 3rem; display: block; }
+.incl-toggle:hover { background: var(--red); color: #fff; }
+
+body.inclusive * { background-color: #fff !important; color: #000 !important; border-color: #000 !important; }
+body.inclusive .d-head { mix-blend-mode: normal !important; }
+/* pseudo-element plates + hover legibility */
+body.inclusive .d-p span::before { background: #000 !important; }
+body.inclusive .d-p span:hover { color: #fff !important; }
+body.inclusive .m-burger span { background: #000 !important; }
+/* decorative SVG marks -> greyscale (photos, which are <img> too, keep colour) */
+body.inclusive .d-head__logo img, body.inclusive .m-nav__logo img, body.inclusive .nl-pop__logo,
+body.inclusive .d-monogram, body.inclusive .m-monogram,
+body.inclusive .d-fbp, body.inclusive .m-fbp, body.inclusive .a-fbp,
+body.inclusive .d-about-s, body.inclusive .a-about-s,
+body.inclusive .d-foot-sofiya, body.inclusive .m-foot-sofiya, body.inclusive .a-foot-sofiya, body.inclusive .p-foot-sofiya, body.inclusive .s-foot-sofiya,
+body.inclusive .d-foot-word, body.inclusive .m-foot-word, body.inclusive .a-foot-word, body.inclusive .p-foot-word, body.inclusive .s-foot-word { filter: grayscale(1) contrast(1.4) !important; }
+/* keep the toggle itself styled */
+body.inclusive .incl-toggle { background: #fff !important; color: #000 !important; border-color: #000 !important; }
+body.inclusive .incl-toggle:hover { background: #000 !important; color: #fff !important; }

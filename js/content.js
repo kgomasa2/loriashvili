@@ -128,12 +128,27 @@
     if (!el) return;
     images = (images || []).map(imgPath).filter(Boolean);
     if (!images.length) { el.innerHTML = ""; el.style.display = "none"; return; }
+    layout = layout || "standard";
     el.classList.add("cms-gallery");
-    el.setAttribute("data-layout", layout || "offset");
+    el.setAttribute("data-layout", layout);
     el.removeAttribute("style"); // drop any hand-tuned inline height
     el.innerHTML = images.map(function (src) {
       return '<div class="cms-g"><img src="' + esc(abs(src)) + '" alt="" loading="lazy"></div>';
     }).join("");
+    if (layout === "standard") classifyStandard(el);
+  }
+  /* standard preset: tag each cell landscape/portrait once its image loads
+     so CSS can lay portraits out 2-up and landscapes full-width */
+  function classifyStandard(el) {
+    $all(".cms-g img", el).forEach(function (img) {
+      function mark() {
+        var cell = img.parentNode;
+        if (!cell) return;
+        cell.classList.add(img.naturalHeight > img.naturalWidth * 1.05 ? "cms-g--port" : "cms-g--land");
+      }
+      if (img.complete && img.naturalWidth) mark();
+      else img.addEventListener("load", mark);
+    });
   }
   function renderMobileGallery(el, images) {
     if (!el) return;

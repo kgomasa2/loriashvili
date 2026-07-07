@@ -5,7 +5,7 @@
       "title": "4 the boyz",
       "image": "/assets/art/couple.jpg",
       "url": "/projects/4the_boyz/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/proj/4the_boyz/g1.jpg",
         "/assets/proj/4the_boyz/g2.jpg",
@@ -27,7 +27,7 @@
       "title": "japan",
       "image": "/assets/art/mune.jpg",
       "url": "/projects/japan/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/proj/japan/g1.jpg",
         "/assets/proj/japan/g2.jpg",
@@ -50,7 +50,7 @@
       "title": "FROM ukraine",
       "image": "/assets/art/dogs.jpg",
       "url": "/projects/ukraine/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/proj/ukraine/g1.jpg",
         "/assets/proj/ukraine/g2.jpg",
@@ -78,7 +78,7 @@
       "title": "strip strip",
       "image": "/assets/art/staffie.jpg",
       "url": "/projects/strip/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/proj/strip/g1.jpg",
         "/assets/proj/strip/g2.jpg",

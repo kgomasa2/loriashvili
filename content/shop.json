@@ -9,7 +9,7 @@
       "cover": "/assets/shop/bangpussy.jpg",
       "hero": "/assets/shop/bangpussy/g1.jpg",
       "url": "/shop/bangpussy/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/bangpussy/g2.jpg",
         "/assets/shop/bangpussy/g3.jpg",
@@ -28,7 +28,7 @@
       "cover": "/assets/shop/chiken_wing.jpg",
       "hero": "/assets/shop/chiken_wing/g1.jpg",
       "url": "/shop/chiken_wing/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/chiken_wing/g2.jpg",
         "/assets/shop/chiken_wing/g3.jpg",
@@ -50,7 +50,7 @@
       "cover": "/assets/shop/fairytales.jpg",
       "hero": "/assets/shop/fairytales/g1.jpg",
       "url": "/shop/fairytales/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/fairytales/g2.jpg",
         "/assets/shop/fairytales/g3.jpg",
@@ -70,7 +70,7 @@
       "cover": "/assets/shop/ici_et_la.jpg",
       "hero": "/assets/shop/ici_et_la/g1.jpg",
       "url": "/shop/ici_et_la/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": []
     },
     {
@@ -82,7 +82,7 @@
       "cover": "/assets/shop/motoyoshino.jpg",
       "hero": "/assets/shop/motoyoshino/g1.jpg",
       "url": "/shop/motoyoshino/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/motoyoshino/g2.jpg",
         "/assets/shop/motoyoshino/g3.jpg",
@@ -101,7 +101,7 @@
       "cover": "/assets/shop/motoyoshino_2.jpg",
       "hero": "/assets/shop/motoyoshino_2/g1.jpg",
       "url": "/shop/motoyoshino_2/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/motoyoshino_2/g2.jpg",
         "/assets/shop/motoyoshino_2/g3.jpg",
@@ -119,7 +119,7 @@
       "cover": "/assets/shop/my_last_voyage.jpg",
       "hero": "/assets/shop/my_last_voyage/g1.jpg",
       "url": "/shop/my_last_voyage/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/my_last_voyage/g2.jpg",
         "/assets/shop/my_last_voyage/g3.jpg",
@@ -139,7 +139,7 @@
       "cover": "/assets/shop/only_u_and_me.jpg",
       "hero": "/assets/shop/only_u_and_me/g1.jpg",
       "url": "/shop/only_u_and_me/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/only_u_and_me/g2.jpg",
         "/assets/shop/only_u_and_me/g3.jpg",
@@ -160,7 +160,7 @@
       "cover": "/assets/shop/my_book.jpg",
       "hero": "/assets/shop/my_book/g1.jpg",
       "url": "/shop/my_book/",
-      "galleryLayout": "offset",
+      "galleryLayout": "standard",
       "gallery": [
         "/assets/shop/my_book/g2.jpg",
         "/assets/shop/my_book/g3.jpg",
