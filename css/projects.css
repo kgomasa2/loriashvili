@@ -86,8 +86,11 @@
   .p-block__name--strip   { font-size: 5.4rem; letter-spacing: -0.16rem; }
   .p-block__name--feet    { font-size: 11rem; }
   .p-block__foot { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 1rem; }
-  .p-block__bio { width: auto; flex: 1; line-height: 1.15; }
-  .p-block__specs { position: static; width: 11rem; flex: 0 0 auto; line-height: 1.25; }
+  .p-block__bio { width: auto; flex: 1; line-height: 1.0; }
+  .p-block__specs { position: static; width: 11rem; flex: 0 0 auto; line-height: 1.1; }
+  /* individual project page: single column — bio, then specs below */
+  .pd-hero .p-block__foot { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .pd-hero .p-block__specs { width: auto; }
   .p-foot-links { justify-content: center; gap: 2rem; padding: 8rem 0 0; }
   .p-foot-sofiya { width: 55%; margin: 3rem auto 0.5rem; }
   .p-foot-word { width: 96%; margin: 0 auto; }

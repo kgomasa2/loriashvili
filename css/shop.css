@@ -96,7 +96,7 @@
   .s-card:active .s-card__ovals { opacity: 1; }
   .s-card__row  { padding: 1.2rem 1.5rem 0; }
   .s-card__foot { padding: 1rem 1.5rem 1.5rem; }
-  .s-card__name, .s-card__price { font-size: 2.8rem; letter-spacing: -0.08rem; }
+  .s-card__name, .s-card__price { font-size: 2.4rem; letter-spacing: -0.07rem; }
   .s-card__meta { gap: 1.5rem; }
   .s-card__pub, .s-card__specs { width: auto; text-align: left; }
   .s-card__buy { width: 11rem; height: 4.4rem; font-size: 2.8rem; }

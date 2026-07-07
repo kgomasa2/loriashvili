@@ -251,19 +251,19 @@ ul { list-style: none; }
   .m-burger span { display: block; width: 100%; height: 0.4rem; background: var(--red); border-radius: 0.2rem; }
 
   /* full-screen burger overlay: mixed-font links, centred, gentle gaps */
-  .m-menu-overlay { position: fixed; inset: 0; z-index: 50; background: var(--yellow); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+  .m-menu-overlay { position: fixed; inset: 0; z-index: 50; background: var(--yellow); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
   .m-menu-overlay.open { opacity: 1; pointer-events: auto; }
   .m-menu-overlay__close { position: absolute; top: 1.4rem; right: 2rem; width: 4.4rem; height: 4.4rem; background: none; border: 0; color: var(--red); font-size: 4.4rem; line-height: 1; cursor: pointer; }
-  .m-ov__link { color: var(--red); text-align: center; line-height: 0.9; }
+  .m-ov__link { display: block; width: 100%; color: var(--red); text-align: center; line-height: 0.9; }
   .m-ov__link--proj    { font-family: "EB Garamond SC", serif; font-size: 6.4rem; letter-spacing: -0.19rem; text-transform: uppercase; }
   .m-ov__link--shop    { font-family: "Bitcount Prop Single", monospace; font-weight: 800; font-size: 5.6rem; letter-spacing: -0.17rem; text-transform: uppercase; }
   .m-ov__link--about   { font-family: "Beau Rivage", cursive; font-size: 7.4rem; }
   .m-ov__link--contact { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.2rem; letter-spacing: -0.13rem; text-transform: uppercase; }
 
   /* HERO */
-  .m-hero { background: var(--yellow); padding: 2.5rem 2rem 3.5rem; }
-  .m-monogram { width: 16rem; height: auto; margin-bottom: 2rem; }
-  .m-menu { display: flex; flex-direction: column; gap: 0.2rem; text-align: center; }
+  .m-hero { background: var(--yellow); padding: 2.5rem 2rem 3.5rem; text-align: center; }
+  .m-monogram { width: 19rem; height: auto; margin: 0 auto 1.4rem; }
+  .m-menu { display: flex; flex-direction: column; gap: 0.05rem; text-align: center; }
   .m-menu a { position: relative; display: block; color: var(--grey); line-height: 0.85; }
   .m-menu a i { display: none; }
   .m-menu__exh   span { font-family: "Beau Rivage", cursive; font-size: 7rem; }
@@ -271,27 +271,27 @@ ul { list-style: none; }
   .m-menu__proj  span { font-family: "EB Garamond SC", serif; font-size: 5rem; text-transform: uppercase; letter-spacing: -0.3rem; }
   .m-menu__media span { font-family: "Bangers", cursive; font-size: 7.5rem; text-transform: uppercase; }
   .m-menu__tg    span { font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 4.6rem; text-transform: uppercase; }
-  .m-hero-photo { width: 60%; height: 16rem; overflow: hidden; position: relative; margin: 3rem 0 2rem; }
-  .m-links { display: flex; gap: 2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); }
-  .m-hero-bio { margin-top: 2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); line-height: 1.05; text-align: center; }
+  .m-hero-photo { width: 60%; height: 16rem; overflow: hidden; position: relative; margin: 2rem auto 1.4rem; }
+  .m-links { display: flex; justify-content: center; gap: 2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); }
+  .m-hero-bio { margin-top: 1.2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); line-height: 0.95; text-align: center; }
 
   /* ABOUT */
-  .m-about { background: var(--blue); padding: 3rem 2rem 4rem; color: var(--red); }
+  .m-about { background: var(--blue); padding: 3rem 2rem 4rem; color: var(--red); text-align: center; }
   .m-sofiya { font-family: "Casino", cursive; font-size: 12rem; letter-spacing: -0.24rem; line-height: 0.85; color: var(--red); text-transform: uppercase; }
-  .m-about-oval { width: 14rem; height: 16.8rem; border-radius: 50%; overflow: hidden; margin: 2rem 0; position: relative; }
-  .m-bio { font-family: var(--arial); font-size: 1.7rem; line-height: 1.05; }
-  .m-fbp { width: 22rem; height: auto; margin: 2.5rem 0; }
+  .m-about-oval { width: 14rem; height: 16.8rem; border-radius: 50%; overflow: hidden; margin: 1.5rem auto; position: relative; }
+  .m-bio { font-family: var(--arial); font-size: 1.7rem; line-height: 0.95; }
+  .m-fbp { width: 22rem; height: auto; margin: 2rem auto; }
   .m-media { font-family: "Bangers", cursive; font-size: 9rem; letter-spacing: -0.27rem; line-height: 0.88; color: var(--red); text-transform: uppercase; margin-top: 1.5rem; text-align: center; }
-  .m-exh { font-family: "Beau Rivage", cursive; font-size: 9rem; line-height: 0.88; color: var(--red); margin-top: 2.5rem; text-align: center; }
-  .m-list { font-family: var(--arial); font-size: 1.6rem; line-height: 1.05; margin-top: 1.5rem; text-align: center; }
-  .m-list li { margin-bottom: 0.5rem; }
+  .m-exh { font-family: "Beau Rivage", cursive; font-size: 9rem; line-height: 0.88; color: var(--red); margin-top: 1.8rem; text-align: center; }
+  .m-list { font-family: var(--arial); font-size: 1.6rem; line-height: 0.95; margin-top: 0.4rem; text-align: center; }
+  .m-list li { margin-bottom: 0.2rem; }
   /* GARDEN (swipeable carousel) */
   .m-garden { width: 100%; height: 42rem; overflow: hidden; }
 
   /* PROJECTS */
   .m-projects { background: var(--red); padding: 3rem 1.5rem 4rem; text-align: center; }
   .m-proj-label { font-family: "e-Ukraine Head", sans-serif; font-weight: 500; font-size: 3rem; letter-spacing: -0.24rem; color: var(--blue); text-transform: uppercase; margin-bottom: 2rem; }
-  .m-p { color: var(--blue); text-transform: uppercase; line-height: 0.85; margin-bottom: 1.4rem; white-space: nowrap; }
+  .m-p { color: var(--blue); text-transform: uppercase; line-height: 0.85; margin-bottom: 0.5rem; white-space: nowrap; }
   .m-p sup { font-family: "e-Ukraine Head", sans-serif; font-weight: 500; font-size: 0.28em; vertical-align: 0.9em; margin-left: 0.15em; }
   .m-p--boyz    { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.4rem; letter-spacing: -0.13rem; }
   .m-p--only    { font-family: "Bayon", sans-serif; font-size: 4.9rem; letter-spacing: -0.15rem; }
@@ -321,7 +321,7 @@ ul { list-style: none; }
     -webkit-mask-composite: source-in; mask-composite: intersect; }
   .m-card:active .d-card__ovals { opacity: 1; }
   .m-card__row { display: flex; justify-content: space-between; align-items: baseline; padding: 1.2rem 1.5rem 0; }
-  .m-card__name, .m-card__price { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 2.6rem; letter-spacing: -0.08rem; color: var(--red); text-transform: uppercase; }
+  .m-card__name, .m-card__price { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.07rem; color: var(--red); text-transform: uppercase; }
   .m-card__foot { display: flex; justify-content: space-between; align-items: flex-end; padding: 1rem 1.5rem 1.5rem; }
   .m-card__pub { display: block; font-family: var(--arial); font-size: 1.3rem; color: var(--red); }
   .m-card__specs { display: block; font-family: var(--arial); font-size: 1.3rem; line-height: 1.25; color: var(--red); margin-top: 0.5rem; }
