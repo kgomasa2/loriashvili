@@ -234,7 +234,7 @@
     btn.type = "button";
     btn.setAttribute("aria-label", "Toggle inclusive high-contrast mode");
     btn.setAttribute("aria-pressed", on ? "true" : "false");
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+    btn.innerHTML = '<svg viewBox="0 0 48 48" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M24 13C13.5 13 5.2 20.4 2 24c3.2 3.6 11.5 11 22 11s18.8-7.4 22-11c-3.2-3.6-11.5-11-22-11zm0 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/><circle cx="24" cy="24" r="3.4"/></svg>';
     btn.addEventListener("click", function () {
       on = !on;
       document.body.classList.toggle("inclusive", on);
