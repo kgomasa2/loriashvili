@@ -14,7 +14,9 @@
 
 .s-grid { display: grid; grid-template-columns: repeat(2, 66.7rem); gap: 2.8rem; justify-content: center; margin-top: 2rem; }
 
-.s-card { display: flex; flex-direction: column; width: 66.7rem; height: 68.8rem; background: var(--grey); }
+/* proportions from Figma node 170-538: cover ~59% of the card, roomy grey
+   info area with title pinned to the top and published/specs/BUY to the bottom */
+.s-card { display: flex; flex-direction: column; width: 66.7rem; height: 84rem; background: var(--grey); }
 
 .s-card__media { position: relative; width: 100%; height: 49.6rem; overflow: hidden; flex: 0 0 auto; }
 .s-card__media img { width: 100%; height: 100%; object-fit: cover; }
@@ -33,19 +35,20 @@
 .s-card:hover .s-card__ovals { opacity: 1; }
 
 .s-card__link { display: flex; flex-direction: column; color: inherit; }
-.s-card__row  { display: flex; justify-content: space-between; align-items: baseline; gap: 1.4rem; padding: 0.4rem 1.4rem 0; }
-.s-card__name  { min-width: 0; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; line-height: 0.95; color: var(--red); text-transform: uppercase; }
+.s-card__row  { display: flex; justify-content: space-between; align-items: baseline; gap: 1.4rem; padding: 1.4rem 1.4rem 0; }
+/* long titles wrap to a narrow column (up to ~3 lines) at full size — no shrinking */
+.s-card__name  { min-width: 0; max-width: 38rem; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; line-height: 0.95; color: var(--red); text-transform: uppercase; overflow-wrap: break-word; }
 .s-card__price { flex: 0 0 auto; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; line-height: 0.95; color: var(--red); }
 
 .s-card__foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 1.4rem; padding: 1rem 1.4rem 1.4rem; }
-.s-card__meta { display: flex; gap: 3.4rem; }
+.s-card__meta { display: flex; gap: 8rem; }
 .s-card__pub   { width: 15.3rem; font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); text-align: center; }
 .s-card__specs { width: 12rem;   font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); }
-.s-card__buy   { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 18.1rem; height: 7.8rem; background: #fff; color: var(--red); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; }
+.s-card__buy   { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 18.1rem; height: 6.8rem; background: #fff; color: var(--red); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; }
 .s-card__buy:hover { background: var(--red); color: #fff; }
 
 /* footer (shared wordmarks) */
-.s-foot-links { display: flex; gap: 4.7rem; padding: 6rem 0 0 2.3rem; font-family: var(--arial); font-size: 1.6rem; letter-spacing: -0.048rem; color: var(--red); }
+.s-foot-links { display: flex; gap: 4.7rem; padding: 18rem 0 0 2.3rem; font-family: var(--arial); font-size: 1.6rem; letter-spacing: -0.048rem; color: var(--red); }
 .s-foot-sofiya { display: block; width: 100.2rem; margin: 1.4rem 0 0 21.9rem; }
 .s-foot-word   { display: block; width: 139.3rem; margin: -0.6rem 0 0 2.3rem; }
 
@@ -98,7 +101,7 @@
   .s-card__pub, .s-card__specs { width: auto; text-align: left; }
   .s-card__buy { width: 11rem; height: 4.4rem; font-size: 2.8rem; }
 
-  .s-foot-links { justify-content: center; gap: 2rem; padding: 4rem 0 0; }
+  .s-foot-links { justify-content: center; gap: 2rem; padding: 8rem 0 0; }
   .s-foot-sofiya { width: 55%; margin: 3rem auto 0.5rem; }
   .s-foot-word { width: 96%; margin: 0 auto; }
 

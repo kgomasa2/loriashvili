@@ -113,7 +113,8 @@
     });
   }
 
-  /* ---- 4b. garden carousel (arrows + wheel, native touch/drag swipe) ---- */
+  /* ---- 4b. garden carousel: arrows + grab-to-drag (mouse) + native touch swipe.
+             No wheel hijack, so page scroll stays smooth when hovering. ---- */
   function initGarden() {
     document.querySelectorAll("[data-garden]").forEach(function (car) {
       var track = car.querySelector(".garden-track");
@@ -123,16 +124,27 @@
       var next = car.querySelector(".garden-nav--next");
       if (prev) prev.addEventListener("click", function () { step(-1); });
       if (next) next.addEventListener("click", function () { step(1); });
-      /* vertical wheel over the carousel scrolls it horizontally */
-      track.addEventListener("wheel", function (e) {
-        if (!e.deltaY) return;
-        var max = track.scrollWidth - track.clientWidth;
-        if (max <= 1) return;
-        var atStart = track.scrollLeft <= 0, atEnd = track.scrollLeft >= max - 1;
-        if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
-        track.scrollLeft += e.deltaY;
-        e.preventDefault();
-      }, { passive: false });
+
+      /* mouse: click-and-drag to pan (touch uses native scrolling) */
+      var down = false, moved = false, startX = 0, startScroll = 0;
+      track.querySelectorAll("img").forEach(function (im) { im.draggable = false; });
+      track.addEventListener("pointerdown", function (e) {
+        if (e.pointerType === "touch") return;   /* touch uses native scrolling */
+        down = true; moved = false; startX = e.clientX; startScroll = track.scrollLeft;
+        track.style.cursor = "grabbing"; track.style.scrollBehavior = "auto";
+        track.style.scrollSnapType = "none";     /* free-drag without snapping fighting us */
+      });
+      track.addEventListener("pointermove", function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        if (Math.abs(dx) > 3) moved = true;
+        track.scrollLeft = startScroll - dx;
+      });
+      function endDrag() { if (!down) return; down = false; track.style.cursor = ""; track.style.scrollBehavior = ""; track.style.scrollSnapType = ""; }
+      track.addEventListener("pointerup", endDrag);
+      track.addEventListener("pointerleave", endDrag);
+      /* swallow the click that follows a drag so it doesn't trigger anything */
+      track.addEventListener("click", function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
     });
   }
 
@@ -223,33 +235,7 @@
     });
   }
 
-  /* ---- 9. fit long card titles so cards never break ---- */
-  function fitOne(el, minPx) {
-    el.style.whiteSpace = "nowrap";
-    el.style.fontSize = "";
-    var size = parseFloat(getComputedStyle(el).fontSize);
-    var guard = 0;
-    while (el.scrollWidth > el.clientWidth + 1 && size > (minPx || 12) && guard++ < 80) {
-      size -= 1;
-      el.style.fontSize = size + "px";
-    }
-  }
-  function fitCardTitles() {
-    document.querySelectorAll(".s-card__name, .d-card__name").forEach(function (el) { fitOne(el, 14); });
-  }
-  function debounce(fn, ms) {
-    var t;
-    return function () { clearTimeout(t); t = setTimeout(fn, ms); };
-  }
-  function initFit() {
-    fitCardTitles();
-    window.addEventListener("load", fitCardTitles);
-    window.addEventListener("resize", debounce(fitCardTitles, 150));
-    var grid = document.querySelector(".s-grid");
-    if (grid && window.MutationObserver) {
-      new MutationObserver(fitCardTitles).observe(grid, { childList: true });
-    }
-  }
+  /* (long card titles wrap to multiple lines at full size — handled in CSS) */
 
   /* ---- 10. inclusive (monochrome) mode toggle ---- */
   function initInclusive() {
@@ -271,29 +257,37 @@
     document.body.appendChild(btn);
   }
 
-  /* ---- 11. footer wordmark stretch + bounce on overscroll past the bottom ---- */
+  /* ---- 11. footer overscroll: LORIASHVILI stretches up, SOFIYA rides up with it,
+             then it quickly springs back down. SOFIYA itself never scales. ---- */
   function initFooterStretch() {
-    var marks = document.querySelectorAll('[class$="foot-sofiya"], [class$="foot-word"]');
-    if (!marks.length) return;
-    marks.forEach(function (m) { m.style.transformOrigin = "center bottom"; m.style.willChange = "transform"; });
+    var word = document.querySelector('[class$="foot-word"]');       /* LORIASHVILI */
+    /* SOFIYA + the social links ride up together so nothing gets covered */
+    var risers = document.querySelectorAll('[class$="foot-sofiya"], [class$="foot-links"]');
+    if (!word) return;
+    word.style.transformOrigin = "center bottom";
+    word.style.willChange = "transform";
+    risers.forEach(function (el) { el.style.transformOrigin = "center bottom"; el.style.willChange = "transform"; });
+    var baseH = word.getBoundingClientRect().height;
     var cur = 0, active = false, relTimer = null;
     function atBottom() {
       return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
     }
-    function set(s, spring) {
-      marks.forEach(function (m) {
-        m.style.transition = spring ? "transform 0.8s cubic-bezier(0.16,1.55,0.36,1)" : "none";
-        m.style.transform = "scaleY(" + (1 + s) + ")";
-      });
+    function apply(s, spring) {
+      var tr = spring ? "transform 0.9s cubic-bezier(0.17,1.12,0.28,1)" : "none";
+      word.style.transition = tr;
+      word.style.transform = "scaleY(" + (1 + s) + ")";
+      var rise = "translateY(" + (-(baseH * s)) + "px)";   /* rise exactly with the wordmark's top */
+      risers.forEach(function (el) { el.style.transition = tr; el.style.transform = rise; });
     }
-    function release() { active = false; cur = 0; set(0, true); }
+    function release() { active = false; cur = 0; apply(0, true); }
+    window.addEventListener("resize", function () { if (!active && cur === 0) baseH = word.getBoundingClientRect().height; });
     window.addEventListener("wheel", function (e) {
       if (e.deltaY > 0 && atBottom()) {
         active = true;
-        cur = Math.min(0.35, cur + e.deltaY * 0.0011);   /* stretch a bit, capped */
-        set(cur, false);
+        cur = Math.min(0.22, cur + e.deltaY * 0.0009);    /* a modest stretch, capped */
+        apply(cur, false);
         clearTimeout(relTimer);
-        relTimer = setTimeout(release, 110);              /* let go -> springy bounce back */
+        relTimer = setTimeout(release, 60);               /* stretch, then quickly drop back down */
       } else if (active && e.deltaY < 0) {
         clearTimeout(relTimer);
         release();
@@ -304,11 +298,7 @@
     window.addEventListener("touchstart", function (e) { startY = e.touches[0].clientY; }, { passive: true });
     window.addEventListener("touchmove", function (e) {
       var dy = startY - e.touches[0].clientY;
-      if (dy > 0 && atBottom()) {
-        active = true;
-        cur = Math.min(0.35, dy * 0.0016);
-        set(cur, false);
-      }
+      if (dy > 0 && atBottom()) { active = true; cur = Math.min(0.22, dy * 0.0013); apply(cur, false); }
     }, { passive: true });
     window.addEventListener("touchend", function () { if (active) release(); }, { passive: true });
   }
@@ -323,7 +313,6 @@
     initNewsletter();
     initHScroll();
     initClickThrough();
-    initFit();
     initInclusive();
     initFooterStretch();
     document.querySelectorAll(".d-band--telegram, .m-telegram").forEach(initTrail);

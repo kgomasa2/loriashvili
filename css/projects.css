@@ -45,7 +45,7 @@
 .p-block__specs { position: absolute; left: 107.1rem; top: 0; width: 11.9rem; font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); }
 
 /* footer (same wordmarks as home/about) */
-.p-foot-links { display: flex; gap: 4.7rem; padding: 8rem 0 0 2.3rem; font-family: var(--arial); font-size: 1.6rem; letter-spacing: -0.048rem; color: var(--red); }
+.p-foot-links { display: flex; gap: 4.7rem; padding: 20rem 0 0 2.3rem; font-family: var(--arial); font-size: 1.6rem; letter-spacing: -0.048rem; color: var(--red); }
 .p-foot-sofiya { display: block; width: 100.2rem; margin: 1.4rem 0 0 21.9rem; }
 .p-foot-word   { display: block; width: 139.3rem; margin: -0.6rem 0 0 2.3rem; }
 
@@ -88,7 +88,7 @@
   .p-block__foot { display: flex; justify-content: space-between; gap: 1.5rem; margin-top: 1rem; }
   .p-block__bio { width: auto; flex: 1; line-height: 1.15; }
   .p-block__specs { position: static; width: 11rem; flex: 0 0 auto; line-height: 1.25; }
-  .p-foot-links { justify-content: center; gap: 2rem; padding: 4rem 0 0; }
+  .p-foot-links { justify-content: center; gap: 2rem; padding: 8rem 0 0; }
   .p-foot-sofiya { width: 55%; margin: 3rem auto 0.5rem; }
   .p-foot-word { width: 96%; margin: 0 auto; }
 
