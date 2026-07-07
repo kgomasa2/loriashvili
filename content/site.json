@@ -1,0 +1,42 @@
+{
+  "heroBio": "Sofiya Loriashvili is a contemporary artist who focuses on the intersection of painting, digital art, and experimental visual narratives.",
+  "aboutBio": "Sofiya Loriashvili is a contemporary artist who focuses on the intersection of painting, digital art, and experimental visual narratives. Her work often explores the transformation of classical forms through modern technical lenses, incorporating elements of mysticism, architectural rhythm, and anatomical deconstruction. Loriashvili’s practice is characterized by a sophisticated use of color and texture, blending traditional techniques with a conceptual approach to space and human identity.",
+  "links": {
+    "instagram": "https://instagram.com/",
+    "onlyfans": "https://onlyfans.com/",
+    "email": "hello@loriashvili.com",
+    "telegram": "https://t.me/"
+  },
+  "media": [
+    { "text": "Libération - Only U and Me" },
+    { "text": "Joia Magazine" },
+    { "text": "Perimetro Magazine" },
+    { "text": "Fisheye Magazine - the perfect woman is a love doll" },
+    { "text": "Dazed - 31 days in Japan" },
+    { "text": "Dazed - My Book" },
+    { "text": "Fisheye Magazine - My Book" },
+    { "text": "Metal Magazine - Interview" },
+    { "text": "VICE - 3" },
+    { "text": "I.D. - Poignant photographs of daily life in Ukraine" },
+    { "text": "VICE - 2" },
+    { "text": "VICE - 1" },
+    { "text": "Konbini - interview" }
+  ],
+  "exhibitions": [
+    { "text": "\"Dissonant Shelter\" 229 lab collective exhibition - october 2025" },
+    { "text": "\"En plein coeur\" Guerlain collective exhibition - 22 october - 16 november 2025" },
+    { "text": "Japan collective exhibition at the Design Festa Gallery - November 2024" },
+    { "text": "Le Sample - Maison 2024" },
+    { "text": "Festival d'Arles 2024, 10/10 fisheye - \"ONLY YOU AND ME\"" },
+    { "text": "Museum of Warsaw, projection of \"Rezavod\" 18.08.2023" },
+    { "text": "Arles \"Night of the year\" projection of \"Rezavod\" - 2023" },
+    { "text": "59 rue notre dame de Nazareth \"Approches du bonheur \" 30.06-06.07.2022" },
+    { "text": "STOCK GALLERY « Ça fait comme si on était demain alors qu'on est déjà hier» 06.05.2022 - collective exhibition" },
+    { "text": "CHAPELLE XIV 14.04.2022 - projection & talk" },
+    { "text": "DOC « SLAVA UKRAÏNI » 13.03.2022 - collective exhibition" },
+    { "text": "35-37 « LOOK AT US » 18.01.2022 - permanent solo exhibition" },
+    { "text": "Espace Cosme «Place's Iv'e » - solo exhibition" },
+    { "text": "35-37 « CHAOS » 26.08.21 - collective exhibition" },
+    { "text": "Espace Cosme « éxutoire » 01.07.21 - collective" }
+  ]
+}

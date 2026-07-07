@@ -1,0 +1,82 @@
+/* ============================================================
+   LORIASHVILI — font faces
+   Exact families used in the Figma "trashbin" / Desktop-6 frame.
+   Self-hosted from /fonts. Google-licensed (OFL) + system-extracted.
+   ============================================================ */
+
+/* Script — hero "Exhibitions", "Feet", about "Exhibitions" */
+@font-face {
+  font-family: "Beau Rivage";
+  src: url("../fonts/BeauRivage-Regular.ttf") format("truetype");
+  font-weight: 400; font-display: swap;
+}
+
+/* Serif caps — project "FROM UKRAINE" */
+@font-face {
+  font-family: "Cochin";
+  src: url("../fonts/Cochin-Regular.ttf") format("truetype");
+  font-weight: 400 500; font-display: swap;
+}
+
+/* Heavy grotesque — nav, "4 THE BOYZ", CHIKEN WING, BUY, $60 */
+@font-face {
+  font-family: "Benzin";
+  src: url("../fonts/Benzin-ExtraBold.ttf") format("truetype");
+  font-weight: 800; font-display: swap;
+}
+
+/* Pixel / dot variable — hero "SHOP", shop marquee "SHOp" (many weights) */
+@font-face {
+  font-family: "Bitcount Prop Single";
+  src: url("../fonts/BitcountPropSingle-VF.ttf") format("truetype");
+  font-weight: 100 900; font-display: swap;
+}
+
+/* Cartoon display — "MEDIA" */
+@font-face {
+  font-family: "Bangers";
+  src: url("../fonts/Bangers-Regular.ttf") format("truetype");
+  font-weight: 400; font-display: swap;
+}
+
+/* Vegas display — "SOFIYA", "about", "STRIP STRIP" */
+@font-face {
+  font-family: "Casino";
+  src: url("../fonts/Casino.ttf") format("truetype");
+  font-weight: 400; font-display: swap;
+}
+
+/* Grotesque light — hero "TELEGRAM", "CHECK MY TELEGRAM" */
+@font-face {
+  font-family: "Compagnon";
+  src: url("../fonts/Compagnon-Light.otf") format("opentype");
+  font-weight: 300; font-display: swap;
+}
+
+/* Techno mono — superscript project numbers, small "Projects" label */
+@font-face {
+  font-family: "e-Ukraine Head";
+  src: url("../fonts/e-UkraineHead-LOGO.otf") format("opentype");
+  font-weight: 500; font-display: swap;
+}
+
+/* Small-caps garamond — hero "PROJECTS" */
+@font-face {
+  font-family: "EB Garamond SC";
+  src: url("../fonts/EBGaramondSC08-Regular.otf") format("opentype");
+  font-weight: 400; font-display: swap;
+}
+
+/* Condensed sans — "ONLY YOU AND ME" */
+@font-face {
+  font-family: "Bayon";
+  src: url("../fonts/Bayon-Regular.ttf") format("truetype");
+  font-weight: 400; font-display: swap;
+}
+
+/* Brush script — "JAPAN" */
+@font-face {
+  font-family: "Babylonica";
+  src: url("../fonts/Babylonica-Regular.ttf") format("truetype");
+  font-weight: 400; font-display: swap;
+}

@@ -1,0 +1,115 @@
+/* ============================================================
+   LORIASHVILI — SHOP page (Figma "trashbin" node 149-831 / Desktop-9)
+   Canvas 1440 wide, green #09D24B.  Reuses css/style.css (vars, reset,
+   .d-head, burger overlay).  1rem = 10 design px.
+   2-column grid of zine cards; hover reveals a red plate with two oval
+   windows over the cover (same mask idiom as the project blocks).
+   Card footer is flex so real (variable-length) zine titles never clip.
+   ============================================================ */
+
+/* ---------------- DESKTOP ---------------- */
+.s-frame { position: relative; width: 144rem; margin: 0 auto; background: var(--green); overflow: hidden; padding-bottom: 4rem; }
+
+.s-title { text-align: center; padding: 8.5rem 0 0; font-family: "Bitcount Prop Single", monospace; font-weight: 400; font-size: 29.1rem; letter-spacing: -0.874rem; line-height: 1; color: var(--red); text-transform: uppercase; }
+
+.s-grid { display: grid; grid-template-columns: repeat(2, 66.7rem); gap: 2.8rem; justify-content: center; margin-top: 2rem; }
+
+.s-card { display: flex; flex-direction: column; width: 66.7rem; height: 68.8rem; background: var(--grey); }
+
+.s-card__media { position: relative; width: 100%; height: 49.6rem; overflow: hidden; flex: 0 0 auto; }
+.s-card__media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* hover: red plate with two oval windows over the cover */
+.s-card__ovals {
+  position: absolute; inset: 0; background: var(--red); opacity: 0; transition: opacity 0.25s ease; pointer-events: none;
+  -webkit-mask:
+    radial-gradient(ellipse 21.7% 45.3% at 28.7% 50%, transparent 98%, #000 100%),
+    radial-gradient(ellipse 21.7% 45.3% at 71.9% 50%, transparent 98%, #000 100%);
+  mask:
+    radial-gradient(ellipse 21.7% 45.3% at 28.7% 50%, transparent 98%, #000 100%),
+    radial-gradient(ellipse 21.7% 45.3% at 71.9% 50%, transparent 98%, #000 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.s-card:hover .s-card__ovals { opacity: 1; }
+
+.s-card__link { display: flex; flex-direction: column; color: inherit; }
+.s-card__row  { display: flex; justify-content: space-between; align-items: baseline; gap: 1.4rem; padding: 1.4rem 5.4rem 0; }
+.s-card__name  { min-width: 0; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; line-height: 0.95; color: var(--red); text-transform: uppercase; }
+.s-card__price { flex: 0 0 auto; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; line-height: 0.95; color: var(--red); }
+
+.s-card__foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 1.4rem; padding: 1rem 5.4rem 2.4rem; }
+.s-card__meta { display: flex; gap: 3rem; }
+.s-card__pub   { width: 15.3rem; font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); text-align: center; }
+.s-card__specs { width: 12rem;   font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); }
+.s-card__buy   { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 18.1rem; height: 7.8rem; background: #fff; color: var(--red); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; }
+.s-card__buy:hover { background: var(--red); color: #fff; }
+
+/* footer (shared wordmarks) */
+.s-foot-links { display: flex; gap: 4.7rem; padding: 6rem 0 0 2.3rem; font-family: var(--arial); font-size: 1.6rem; letter-spacing: -0.048rem; color: var(--red); }
+.s-foot-sofiya { display: block; width: 100.2rem; margin: 1.4rem 0 0 21.9rem; }
+.s-foot-word   { display: block; width: 139.3rem; margin: -0.6rem 0 0 2.3rem; }
+
+/* ============================================================
+   INDIVIDUAL SHOP ITEM PAGE (Figma "Desktop - 11" / node 157-176)
+   Cover + product info + scattered editorial gallery of spreads.
+   ============================================================ */
+.si-frame { position: relative; width: 144rem; margin: 0 auto; background: var(--green); overflow: hidden; padding-bottom: 5rem; }
+.si-hero  { display: block; width: 134.3rem; height: auto; margin: 2rem auto 0; }
+
+.si-info  { position: relative; width: 144rem; margin: 3rem 0 0; padding: 0 5rem; }
+.si-name  { width: 92rem; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 8.69rem; letter-spacing: -0.261rem; line-height: 0.9; color: var(--red); text-transform: uppercase; }
+.si-price { position: absolute; top: 1rem; right: 26rem; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; color: var(--red); }
+.si-buy   { position: absolute; top: 0.4rem; right: 4.7rem; display: flex; align-items: center; justify-content: center; width: 18.1rem; height: 7.8rem; background: var(--red); color: var(--grey); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.34rem; letter-spacing: -0.13rem; }
+.si-buy:hover { color: #fff; }
+.si-meta  { display: flex; gap: 5rem; margin-top: 2.4rem; }
+.si-specs { font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); }
+.si-pub   { width: 15.3rem; font-family: var(--arial); font-size: 1.61rem; letter-spacing: -0.048rem; line-height: 1.5rem; color: var(--red); text-align: center; }
+
+/* desktop scattered gallery — positions set inline per image */
+.si-gallery { position: relative; width: 144rem; margin: 5rem auto 0; }
+.si-g       { position: absolute; }
+.si-g img   { display: block; width: 100%; height: auto; }
+
+/* ============================================================
+   MOBILE  —  single column
+   ============================================================ */
+@media (max-width: 767px) {
+  .s-frame { width: 100%; padding-bottom: 2rem; }
+  .s-title { padding-top: 3rem; font-size: 11rem; letter-spacing: -0.33rem; }
+  .s-grid { grid-template-columns: 1fr; gap: 3rem; margin-top: 2rem; padding: 0 1.5rem; }
+
+  .s-card { width: 100%; height: auto; }
+  .s-card__media { height: 26rem; }
+  .s-card__ovals {
+    -webkit-mask:
+      radial-gradient(ellipse 22% 44% at 29% 50%, transparent 98%, #000 100%),
+      radial-gradient(ellipse 22% 44% at 71% 50%, transparent 98%, #000 100%);
+    mask:
+      radial-gradient(ellipse 22% 44% at 29% 50%, transparent 98%, #000 100%),
+      radial-gradient(ellipse 22% 44% at 71% 50%, transparent 98%, #000 100%);
+    -webkit-mask-composite: source-in; mask-composite: intersect;
+  }
+  .s-card:active .s-card__ovals { opacity: 1; }
+  .s-card__row  { padding: 1.2rem 1.5rem 0; }
+  .s-card__foot { padding: 1rem 1.5rem 1.5rem; }
+  .s-card__name, .s-card__price { font-size: 2.8rem; letter-spacing: -0.08rem; }
+  .s-card__meta { gap: 1.5rem; }
+  .s-card__pub, .s-card__specs { width: auto; text-align: left; }
+  .s-card__buy { width: 11rem; height: 4.4rem; font-size: 2.8rem; }
+
+  .s-foot-links { justify-content: center; gap: 2rem; padding: 4rem 0 0; }
+  .s-foot-sofiya { width: 55%; margin: 3rem auto 0.5rem; }
+  .s-foot-word { width: 96%; margin: 0 auto; }
+
+  /* item page — stacked */
+  .si-frame { width: 100%; padding-bottom: 2rem; }
+  .si-hero { width: 100%; margin-top: 1.5rem; }
+  .si-info { width: 100%; padding: 0 1.5rem; margin-top: 2.5rem; }
+  .si-name { width: auto; font-size: 5.6rem; }
+  .si-price { position: static; margin-top: 1.2rem; font-size: 3.2rem; }
+  .si-buy { position: static; margin-top: 1.6rem; width: 14rem; height: 5.6rem; font-size: 3.2rem; }
+  .si-meta { flex-direction: column; gap: 1rem; margin-top: 1.6rem; }
+  .si-pub { width: auto; text-align: left; }
+  .si-m-gallery { display: flex; flex-direction: column; gap: 2rem; padding: 0 1.5rem; margin-top: 3rem; }
+  .si-m-gallery img { display: block; width: 100%; height: auto; }
+}

@@ -1,0 +1,15 @@
+# LORIASHVILI — static site on Netlify (no build step)
+[build]
+  publish = "."
+
+# Keep the admin out of search engines
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# Always serve fresh content JSON so CMS edits show up immediately
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

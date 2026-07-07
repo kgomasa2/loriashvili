@@ -1,0 +1,307 @@
+/* ============================================================
+   LORIASHVILI — Desktop-6 (Figma "trashbin")
+   Desktop: 1440-wide canvas reproduced 1:1.  1rem = 10 design px
+   (html font-size scales fluidly with the viewport width).
+   Mobile: same style, single column.
+   ============================================================ */
+
+:root {
+  --yellow: #FFF70B;
+  --red:    #FA2935;
+  --blue:   #81D0FC;
+  --green:  #09D24B;
+  --grey:   #B5B5B5;
+  --grey-d: #8B8B8B;
+  --arial: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: calc(100vw / 144); }            /* 1rem = 10px @1440 */
+body { background: var(--yellow); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { display: block; }
+ul { list-style: none; }
+
+.mobile { display: none; }
+
+/* ============================================================
+   DESKTOP CANVAS
+   ============================================================ */
+.desktop { width: 144rem; margin: 0 auto; }
+.frame {
+  position: relative;
+  width: 144rem;
+  height: 656.5rem;
+  background: var(--yellow);
+  overflow: hidden;
+}
+
+/* full-bleed colour bands (paint behind their section text) */
+.d-band { position: absolute; left: -0.3rem; width: 144.6rem; }
+.d-band--about    { top: 82rem;    height: 109.8rem; background: var(--blue); }
+.d-band--projects { top: 274.8rem; height: 109.6rem; background: var(--red); }
+.d-band--shop     { top: 384.4rem; height: 102.2rem; background: var(--green); }
+.d-band--telegram { top: 486.7rem; height: 86.4rem;  background: var(--blue); }
+.d-band--footer   { top: 573.1rem; height: 83.4rem;  background: var(--yellow); }
+
+/* ---------------- HEADER ---------------- */
+/* transparent top-right cluster: red two-oval logo + mixed-font nav */
+.d-head__logo { position: absolute; left: 82.8rem; top: 0.4rem; width: 13.3rem; height: 10.3rem; z-index: 6; }
+.d-head__logo img { width: 100%; height: 100%; }
+.d-head__link { position: absolute; color: var(--red); white-space: nowrap; z-index: 6; line-height: 1; }
+.d-head__link:hover { opacity: 0.6; }
+.d-head__link--proj    { left: 96.8rem;  top: 1rem;   font-family: "EB Garamond SC", serif; font-size: 3.17rem; letter-spacing: -0.095rem; text-transform: uppercase; }
+.d-head__link--shop    { left: 110.9rem; top: 0.6rem; font-family: "Bitcount Prop Single", monospace; font-weight: 800; font-size: 3.28rem; letter-spacing: -0.099rem; text-transform: uppercase; }
+.d-head__link--about   { left: 120.5rem; top: 0.2rem; font-family: "Beau Rivage", cursive; font-size: 3.2rem; letter-spacing: -0.096rem; }
+.d-head__link--contact { left: 127.6rem; top: 1rem;   font-family: "Benzin", sans-serif; font-weight: 800; font-size: 2.23rem; letter-spacing: -0.067rem; text-transform: uppercase; }
+
+/* ---------------- HERO ---------------- */
+.d-monogram   { position: absolute; left: 17.9rem;  top: 8.5rem;  width: 30.5rem; height: 23.8rem; }
+.d-hero-photo { position: absolute; left: 105.1rem; top: 11rem;   width: 29.9rem; height: 19.8rem; overflow: hidden; }
+
+/* auto-cycling image layers (hero rectangle + about oval) */
+[data-cycle] { position: relative; }
+[data-cycle] img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease; }
+[data-cycle] img.on { opacity: 1; }
+
+.d-h { position: absolute; color: var(--grey); white-space: nowrap; line-height: 1; }
+.d-h i {
+  position: absolute; font-family: var(--arial); font-style: normal;
+  font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); line-height: 1.7rem;
+}
+.d-h--exh   { left: 6rem;    top: 24.9rem; font-family: "Beau Rivage", cursive; font-size: 14.786rem; letter-spacing: -0.444rem; line-height: 19.8rem; }
+.d-h--exh i { left: 42.4rem; top: 4.4rem; }
+.d-h--shop  { left: 40.2rem; top: 36.4rem; font-family: "Bitcount Prop Single", monospace; font-weight: 400; font-size: 13.851rem; letter-spacing: -0.416rem; line-height: 16.6rem; text-transform: uppercase; }
+.d-h--shop i{ left: 36.1rem; top: 2.4rem; }
+.d-h--proj  { left: 47.8rem; top: 48.6rem; font-family: "EB Garamond SC", serif; font-size: 8.848rem; letter-spacing: -0.708rem; line-height: 8.8rem; text-transform: uppercase; }
+.d-h--proj i{ left: 35.2rem; top: 0; }
+.d-h--media { left: 37.2rem; top: 55.1rem; font-family: "Bangers", cursive; font-size: 18.004rem; letter-spacing: 0.36rem; line-height: 19.2rem; text-transform: uppercase; }
+.d-h--media i{ left: 39.5rem; top: 2.4rem; }
+.d-h--tg    { left: 46.9rem; top: 71.9rem; font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 7.896rem; letter-spacing: -0.158rem; line-height: 5.9rem; text-transform: uppercase; }
+.d-h--tg i  { left: 37.5rem; top: -0.6rem; }
+
+.d-hero-links { position: absolute; left: 113.5rem; top: 55.3rem; width: 9.4rem; text-align: right; }
+.d-hero-links a { display: block; font-family: var(--arial); font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); line-height: 1.8rem; }
+.d-hero-bio { position: absolute; left: 14.1rem; top: 76.9rem; width: 124.5rem; font-family: var(--arial); font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); text-align: center; line-height: 1.7rem; }
+
+/* ---------------- ABOUT ---------------- */
+.d-sofiya { position: absolute; left: 40.9rem; top: 82rem; font-family: "Casino", cursive; font-size: 22.139rem; letter-spacing: -0.443rem; line-height: 22.1rem; color: var(--red); text-transform: uppercase; white-space: nowrap; }
+.d-bio { position: absolute; left: 2.8rem; top: 99.9rem; width: 138.4rem; font-family: var(--arial); font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); text-align: center; line-height: 1.7rem; }
+.d-fbp { position: absolute; }
+.d-fbp--about { left: 55.6rem; top: 104.4rem; width: 36.8rem; }
+
+.d-about-s   { position: absolute; left: 15.8rem; top: 113rem; width: 16.9rem; height: 20.2rem; }
+.d-about-oval { position: absolute; left: 32.7rem; top: 113rem; width: 16.8rem; height: 20.1rem; border-radius: 50%; overflow: hidden; }
+
+.d-media { position: absolute; left: 99.9rem; top: 124.6rem; font-family: "Bangers", cursive; font-size: 18.004rem; letter-spacing: -0.54rem; line-height: 19.2rem; color: var(--red); text-transform: uppercase; }
+.d-media-list { position: absolute; left: 99.9rem; top: 141.4rem; width: 41.6rem; font-family: var(--arial); font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); line-height: 1.5rem; text-align: center; }
+.d-exh { position: absolute; left: 45.5rem; top: 137.5rem; font-family: "Beau Rivage", cursive; font-size: 17.002rem; letter-spacing: -0.51rem; line-height: 22.8rem; color: var(--red); }
+.d-exh-list { position: absolute; left: 52.2rem; top: 154.7rem; width: 51.2rem; font-family: var(--arial); font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); line-height: 1.5rem; text-align: center; }
+
+.d-h--about-label { left: 16.1rem; top: 178.2rem; font-family: "Casino", cursive; font-size: 5.481rem; letter-spacing: -0.11rem; line-height: 5.5rem; color: var(--yellow); text-transform: uppercase; }
+.d-h--about-label i { left: 15rem; top: 0; color: var(--yellow); }
+
+/* ---------------- GARDEN ---------------- */
+.d-garden { position: absolute; left: 0.1rem; top: 191.8rem; width: 143.9rem; height: 83rem; object-fit: cover; }
+
+/* ---------------- PROJECTS ---------------- */
+.d-proj-label { position: absolute; left: 0; top: 283.5rem; width: 144rem; font-family: "e-Ukraine Head", sans-serif; font-weight: 500; font-size: 4.59rem; letter-spacing: -0.367rem; line-height: 5.5rem; color: var(--blue); text-transform: uppercase; text-align: center; }
+.d-p { position: absolute; left: 0; width: 144rem; text-align: center; color: var(--blue); white-space: nowrap; text-transform: uppercase; z-index: 2; pointer-events: none; }
+.d-p span { position: relative; display: inline-block; cursor: pointer; pointer-events: auto; }
+/* green plate behind the whole hovered heading */
+.d-p span::before { content: ""; position: absolute; left: -0.05em; right: -0.05em; top: 50%; height: 0.76em; background: var(--green); z-index: -1; transform: translateY(-50%) scaleX(0); transform-origin: center; transition: transform 0.3s ease; }
+.d-p span:hover::before { transform: translateY(-50%) scaleX(1); }
+.d-p.active { z-index: 6; }
+.d-p--boyz    { top: 288.2rem; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 13.851rem; letter-spacing: -0.416rem; line-height: 19.1rem; }
+.d-p--only    { top: 302.4rem; font-family: "Bayon", sans-serif; font-size: 16.581rem; letter-spacing: -0.497rem; line-height: 13.3rem; }
+.d-p--japan   { top: 314.6rem; font-family: "Babylonica", cursive; font-size: 16.581rem; letter-spacing: -0.497rem; line-height: 13.3rem; }
+.d-p--ukraine { top: 326.5rem; font-family: "Cochin", serif; font-size: 16.452rem; letter-spacing: -0.494rem; line-height: 13.2rem; }
+.d-p--strip   { top: 341.5rem; font-family: "Casino", cursive; font-size: 17.383rem; letter-spacing: -0.521rem; line-height: 13.9rem; }
+.d-p--feet    { top: 350rem;   font-family: "Beau Rivage", cursive; font-size: 20rem; letter-spacing: -0.6rem; line-height: 14rem; text-transform: none; }
+.d-p--boyz span::before, .d-p--only span::before { height: 0.82em; }
+.d-p--japan span::before { height: 0.6em; top: 44%; }
+.d-p--feet span::before  { height: 0.62em; top: 46%; }
+
+/* project preview photo (top-right, shown on heading hover) */
+.d-proj-photo { position: absolute; top: 286rem; right: 3rem; width: 34rem; height: 22.6rem; overflow: hidden; opacity: 0; transition: opacity 0.25s ease; pointer-events: none; z-index: 3; }
+.d-proj-photo.show { opacity: 1; }
+.d-proj-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------------- SHOP ---------------- */
+.d-marquee span { position: absolute; top: 391.9rem; font-family: "Bitcount Prop Single", monospace; font-size: 13.851rem; letter-spacing: -0.416rem; line-height: 16.6rem; color: var(--yellow); text-transform: uppercase; white-space: nowrap; }
+.d-marquee span:nth-child(1) { left: 4.2rem; }
+.d-marquee span:nth-child(2) { left: 43.9rem; }
+.d-marquee span:nth-child(3) { left: 83.6rem; }
+.d-marquee span:nth-child(4) { left: 123.3rem; }
+
+/* horizontally scrollable card carousel */
+.d-cards { position: absolute; top: 414.8rem; left: 2.7rem; width: 138.6rem; height: 58rem; display: flex; gap: 2.3rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: var(--yellow) transparent; }
+.d-cards::-webkit-scrollbar { height: 0.8rem; }
+.d-cards::-webkit-scrollbar-thumb { background: var(--yellow); }
+.d-card { position: relative; flex: 0 0 53.5rem; width: 53.5rem; height: 55.14rem; background: var(--grey); }
+.d-card:hover { box-shadow: inset 0 0 0 0.7rem var(--green); }
+.d-card__media { position: absolute; left: 0.1rem; top: 0; width: 53.4rem; height: 39.8rem; overflow: hidden; }
+.d-card__media img { width: 100%; height: 100%; object-fit: cover; }
+/* hover overlay: yellow plate with two oval windows cut through to the photo */
+.d-card__ovals { position: absolute; inset: 0; background: var(--yellow); opacity: 0; transition: opacity 0.25s ease; pointer-events: none;
+  -webkit-mask:
+    radial-gradient(ellipse 11.6rem 18rem at 30% 50%, transparent 98%, #000 100%),
+    radial-gradient(ellipse 11.6rem 18rem at 70% 50%, transparent 98%, #000 100%);
+  mask:
+    radial-gradient(ellipse 11.6rem 18rem at 30% 50%, transparent 98%, #000 100%),
+    radial-gradient(ellipse 11.6rem 18rem at 70% 50%, transparent 98%, #000 100%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.d-card:hover .d-card__ovals { opacity: 1; }
+.d-card__name  { position: absolute; top: 40.1rem; left: 1.2rem;  font-family: "Benzin", sans-serif; font-weight: 800; font-size: 3.481rem; letter-spacing: -0.104rem; line-height: 4.8rem; color: var(--yellow); text-transform: uppercase; }
+.d-card__price { position: absolute; top: 40.1rem; left: 39.1rem; font-family: "Benzin", sans-serif; font-weight: 800; font-size: 3.481rem; letter-spacing: -0.104rem; line-height: 4.8rem; color: var(--yellow); }
+.d-card__pub   { position: absolute; top: 47.5rem; left: 1.2rem;  width: 12.3rem; font-family: var(--arial); font-size: 1.29rem; letter-spacing: -0.039rem; line-height: 1.2rem; color: var(--yellow); text-align: center; }
+.d-card__specs { position: absolute; top: 47.5rem; left: 20rem;   width: 12rem;   font-family: var(--arial); font-size: 1.29rem; letter-spacing: -0.039rem; line-height: 1.2rem; color: var(--yellow); }
+.d-card__buy   { position: absolute; top: 49rem; left: 39rem; width: 14.5rem; height: 6.2rem; display: flex; align-items: center; justify-content: center; background: var(--yellow); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 3.481rem; letter-spacing: -0.104rem; }
+
+/* ---------------- TELEGRAM ---------------- */
+.d-band--telegram { overflow: hidden; }
+.d-tg-check { position: absolute; left: 85rem; top: 520.9rem; width: 54.9rem; font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 16.198rem; letter-spacing: -0.324rem; line-height: 12.1rem; color: var(--grey-d); text-transform: uppercase; text-align: center; z-index: 2; pointer-events: none; }
+.d-fbp--tg { left: 75.2rem; top: 541.1rem; width: 36.8rem; z-index: 2; pointer-events: none; }
+
+/* cursor-trail images over the telegram band */
+.tg-trail { position: absolute; width: 20rem; height: auto; pointer-events: none; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); z-index: 1; will-change: opacity, transform; animation: tg-fade 1.1s ease forwards; }
+@keyframes tg-fade { 0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--r,0deg)) scale(0.8); } 12% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--r,0deg)) scale(1); } }
+
+/* chaotic per-letter weights on SHOP headings (set by JS) */
+[data-scramble] u { font-style: normal; text-decoration: none; display: inline-block; }
+
+/* ---------------- FOOTER ---------------- */
+.d-foot-links { position: absolute; left: 2.3rem; top: 604.4rem; display: flex; gap: 4.7rem; font-family: var(--arial); font-size: 1.6rem; letter-spacing: -0.048rem; color: var(--red); }
+.d-foot-sofiya { position: absolute; left: 21.9rem; top: 610.1rem; width: 100.2rem; }
+.d-foot-word   { position: absolute; left: 2.3rem;  top: 619.4rem; width: 139.3rem; }
+
+
+/* ============================================================
+   NEWSLETTER POPUP  (injected by main.js, once per session, all pages)
+   Figma "trashbin" node 149-979 / Frame 17 — green capsule.
+   Sized responsively so it fits desktop + mobile.
+   ============================================================ */
+/* fixed px sizing — decoupled from the fluid 1440-canvas rem */
+.nl-backdrop { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,0.5); opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.nl-backdrop.open { opacity: 1; pointer-events: auto; }
+.nl-pop { width: clamp(300px, 88vw, 413px); max-height: 92vh; overflow: auto; background: var(--green); border-radius: 210px; padding: 20px 8% 34px; display: flex; flex-direction: column; align-items: center; text-align: center; transform: scale(0.9); transition: transform 0.3s ease; }
+.nl-backdrop.open .nl-pop { transform: scale(1); }
+.nl-pop__logo  { width: 98px; height: auto; }
+.nl-pop__title { margin-top: 6px; width: 100%; font-family: "EB Garamond SC", serif; font-size: 50px; letter-spacing: -4px; line-height: 0.92; color: var(--red); text-transform: uppercase; }
+.nl-pop__text  { margin-top: 14px; width: 74%; font-family: var(--arial); font-size: 11.8px; letter-spacing: -0.35px; line-height: 1.35; color: var(--red); }
+.nl-pop__form  { width: 66%; margin-top: 18px; display: flex; flex-direction: column; gap: 5px; }
+.nl-pop__input { width: 100%; height: 90px; border: 0; border-radius: 60px; background: #fff; text-align: center; font-family: var(--arial); font-size: 13px; letter-spacing: -0.35px; color: var(--red); outline: none; }
+.nl-pop__input::placeholder { color: #9F9F9F; }
+.nl-pop__btn   { width: 100%; height: 90px; border: 0; border-radius: 60px; background: var(--red); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 21px; letter-spacing: -0.64px; text-transform: uppercase; cursor: pointer; }
+.nl-pop__btn:hover { background: #d81f2a; }
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 767px) {
+  html { font-size: calc(100vw / 39); }           /* 1rem = 10px @390 */
+  .desktop { display: none; }
+  .mobile  { display: block; }
+
+  .mobile section, .mobile footer, .mobile > .m-nav { position: relative; overflow: hidden; }
+
+  /* NAV — transparent bar: red two-oval logo + burger */
+  .m-nav { display: flex; align-items: center; height: 5.2rem; background: var(--yellow); padding: 0 1.6rem; position: relative; z-index: 40; }
+  .m-nav__logo { flex: 0 0 auto; height: 3.6rem; }
+  .m-nav__logo img { height: 100%; width: auto; }
+  .m-burger { margin-left: auto; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; width: 4.4rem; height: 4.4rem; padding: 0.9rem 0.5rem; background: none; border: 0; cursor: pointer; }
+  .m-burger span { display: block; width: 100%; height: 0.4rem; background: var(--red); border-radius: 0.2rem; }
+
+  /* full-screen burger overlay: mixed-font links, centred, gentle gaps */
+  .m-menu-overlay { position: fixed; inset: 0; z-index: 50; background: var(--yellow); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4rem; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+  .m-menu-overlay.open { opacity: 1; pointer-events: auto; }
+  .m-menu-overlay__close { position: absolute; top: 1.4rem; right: 2rem; width: 4.4rem; height: 4.4rem; background: none; border: 0; color: var(--red); font-size: 4.4rem; line-height: 1; cursor: pointer; }
+  .m-ov__link { color: var(--red); text-align: center; line-height: 0.9; }
+  .m-ov__link--proj    { font-family: "EB Garamond SC", serif; font-size: 6.4rem; letter-spacing: -0.19rem; text-transform: uppercase; }
+  .m-ov__link--shop    { font-family: "Bitcount Prop Single", monospace; font-weight: 800; font-size: 5.6rem; letter-spacing: -0.17rem; text-transform: uppercase; }
+  .m-ov__link--about   { font-family: "Beau Rivage", cursive; font-size: 7.4rem; }
+  .m-ov__link--contact { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.2rem; letter-spacing: -0.13rem; text-transform: uppercase; }
+
+  /* HERO */
+  .m-hero { background: var(--yellow); padding: 2.5rem 2rem 3.5rem; }
+  .m-monogram { width: 16rem; height: auto; margin-bottom: 2rem; }
+  .m-menu { display: flex; flex-direction: column; gap: 0.2rem; text-align: center; }
+  .m-menu a { position: relative; display: block; color: var(--grey); line-height: 0.85; }
+  .m-menu a i { display: none; }
+  .m-menu__exh   span { font-family: "Beau Rivage", cursive; font-size: 7rem; }
+  .m-menu__shop  span { font-family: "Bitcount Prop Single", monospace; font-size: 6.6rem; text-transform: uppercase; letter-spacing: -0.2rem; }
+  .m-menu__proj  span { font-family: "EB Garamond SC", serif; font-size: 5rem; text-transform: uppercase; letter-spacing: -0.3rem; }
+  .m-menu__media span { font-family: "Bangers", cursive; font-size: 7.5rem; text-transform: uppercase; }
+  .m-menu__tg    span { font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 4.6rem; text-transform: uppercase; }
+  .m-hero-photo { width: 60%; height: 16rem; overflow: hidden; position: relative; margin: 3rem 0 2rem; }
+  .m-links { display: flex; gap: 2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); }
+  .m-hero-bio { margin-top: 2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); line-height: 1.05; text-align: center; }
+
+  /* ABOUT */
+  .m-about { background: var(--blue); padding: 3rem 2rem 4rem; color: var(--red); }
+  .m-sofiya { font-family: "Casino", cursive; font-size: 12rem; letter-spacing: -0.24rem; line-height: 0.85; color: var(--red); text-transform: uppercase; }
+  .m-about-oval { width: 14rem; height: 16.8rem; border-radius: 50%; overflow: hidden; margin: 2rem 0; position: relative; }
+  .m-bio { font-family: var(--arial); font-size: 1.7rem; line-height: 1.05; }
+  .m-fbp { width: 22rem; height: auto; margin: 2.5rem 0; }
+  .m-media { font-family: "Bangers", cursive; font-size: 9rem; letter-spacing: -0.27rem; line-height: 0.88; color: var(--red); text-transform: uppercase; margin-top: 1.5rem; text-align: center; }
+  .m-exh { font-family: "Beau Rivage", cursive; font-size: 9rem; line-height: 0.88; color: var(--red); margin-top: 2.5rem; text-align: center; }
+  .m-list { font-family: var(--arial); font-size: 1.6rem; line-height: 1.05; margin-top: 1.5rem; text-align: center; }
+  .m-list li { margin-bottom: 0.5rem; }
+  /* GARDEN */
+  .m-garden { width: 100%; height: 42rem; object-fit: cover; }
+
+  /* PROJECTS */
+  .m-projects { background: var(--red); padding: 3rem 1.5rem 4rem; text-align: center; }
+  .m-proj-label { font-family: "e-Ukraine Head", sans-serif; font-weight: 500; font-size: 3rem; letter-spacing: -0.24rem; color: var(--blue); text-transform: uppercase; margin-bottom: 2rem; }
+  .m-p { color: var(--blue); text-transform: uppercase; line-height: 0.85; margin-bottom: 1.4rem; white-space: nowrap; }
+  .m-p sup { font-family: "e-Ukraine Head", sans-serif; font-weight: 500; font-size: 0.28em; vertical-align: 0.9em; margin-left: 0.15em; }
+  .m-p--boyz    { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 4.4rem; letter-spacing: -0.13rem; }
+  .m-p--only    { font-family: "Bayon", sans-serif; font-size: 4.9rem; letter-spacing: -0.15rem; }
+  .m-p--japan   { font-family: "Babylonica", cursive; font-size: 6.5rem; }
+  .m-p--ukraine { font-family: "Cochin", serif; font-size: 4.3rem; letter-spacing: -0.14rem; }
+  .m-p--strip   { font-family: "Casino", cursive; font-size: 5.4rem; letter-spacing: -0.16rem; }
+  .m-p--feet    { font-family: "Beau Rivage", cursive; font-size: 11rem; text-transform: none; margin-bottom: 0; }
+
+  /* SHOP */
+  .m-shop { background: var(--green); padding: 3rem 2rem 4rem; }
+  .m-marquee { display: flex; gap: 1.5rem; overflow: hidden; margin-bottom: 2.5rem; }
+  .m-marquee span { font-family: "Bitcount Prop Single", monospace; font-size: 6rem; letter-spacing: -0.18rem; color: var(--yellow); text-transform: uppercase; white-space: nowrap; }
+  .m-marquee span:nth-child(1) { font-weight: 900; }
+  .m-marquee span:nth-child(2) { font-weight: 500; }
+  .m-marquee span:nth-child(3) { font-weight: 300; }
+  .m-cards { display: flex; gap: 1.5rem; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; margin: 0 -2rem; padding: 0 2rem; }
+  .m-card { flex: 0 0 82%; scroll-snap-align: start; background: var(--grey); }
+  .m-card__media { position: relative; width: 100%; height: 26rem; overflow: hidden; }
+  .m-card__media img { width: 100%; height: 100%; object-fit: cover; }
+  .m-card__media .d-card__ovals { position: absolute; inset: 0; background: var(--yellow); opacity: 0; transition: opacity 0.25s ease; pointer-events: none;
+    -webkit-mask:
+      radial-gradient(ellipse 28% 45% at 30% 50%, transparent 98%, #000 100%),
+      radial-gradient(ellipse 28% 45% at 70% 50%, transparent 98%, #000 100%);
+    mask:
+      radial-gradient(ellipse 28% 45% at 30% 50%, transparent 98%, #000 100%),
+      radial-gradient(ellipse 28% 45% at 70% 50%, transparent 98%, #000 100%);
+    -webkit-mask-composite: source-in; mask-composite: intersect; }
+  .m-card:active .d-card__ovals { opacity: 1; }
+  .m-card__row { display: flex; justify-content: space-between; align-items: baseline; padding: 1.2rem 1.5rem 0; }
+  .m-card__name, .m-card__price { font-family: "Benzin", sans-serif; font-weight: 800; font-size: 2.6rem; letter-spacing: -0.08rem; color: var(--yellow); text-transform: uppercase; }
+  .m-card__foot { display: flex; justify-content: space-between; align-items: flex-end; padding: 1rem 1.5rem 1.5rem; }
+  .m-card__pub { display: block; font-family: var(--arial); font-size: 1.3rem; color: var(--yellow); }
+  .m-card__specs { display: block; font-family: var(--arial); font-size: 1.3rem; line-height: 1.25; color: var(--yellow); margin-top: 0.5rem; }
+  .m-card__buy { flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 9rem; height: 4rem; background: var(--yellow); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 2.4rem; }
+  .m-tg-check { position: relative; z-index: 2; }
+  .m-telegram .tg-trail { width: 22rem; }
+
+  /* TELEGRAM */
+  .m-telegram { background: var(--blue); padding: 5rem 2rem; text-align: center; }
+  .m-tg-check { display: block; font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 6.4rem; letter-spacing: -0.13rem; line-height: 0.85; color: var(--grey-d); text-transform: uppercase; }
+  .m-fbp { width: 22rem; height: auto; margin: 3rem auto 0; }
+
+  /* FOOTER */
+  .m-footer { background: var(--yellow); padding: 3rem 2rem 2rem; text-align: center; }
+  .m-foot-links { display: flex; justify-content: center; gap: 2rem; font-family: var(--arial); font-size: 1.5rem; color: var(--red); }
+  .m-foot-sofiya { width: 55%; height: auto; margin: 3rem auto 0.5rem; }
+  .m-foot-word { width: 100%; height: auto; margin: 0 auto; }
+}

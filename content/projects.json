@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "key": "boyz",    "title": "4 the boyz",      "image": "assets/art/couple.jpg",   "url": "/projects/4the_boyz/" },
+    { "key": "only",    "title": "only you and me", "image": "assets/art/kingkong.jpg", "url": "" },
+    { "key": "japan",   "title": "japan",           "image": "assets/art/mune.jpg",     "url": "/projects/japan/" },
+    { "key": "ukraine", "title": "FROM ukraine",    "image": "assets/art/dogs.jpg",     "url": "/projects/ukraine/" },
+    { "key": "strip",   "title": "strip strip",     "image": "assets/art/staffie.jpg",  "url": "/projects/strip/" },
+    { "key": "feet",    "title": "Feet",            "image": "assets/art/whisper.jpg",  "url": "" }
+  ]
+}

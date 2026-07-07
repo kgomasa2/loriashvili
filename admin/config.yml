@@ -1,0 +1,85 @@
+backend:
+  name: github
+  repo: kgomasa2/loriashvili   # <-- ЗМІНИ на свій github-user/repo, якщо інший
+  branch: main
+
+# Куди CMS завантажує НОВІ картинки (існуючі лишаються за своїми шляхами)
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: "uk"
+
+collections:
+  # ---------------------------------------------------------------
+  - name: site
+    label: "Сайт — тексти та посилання"
+    delete: false
+    files:
+      - name: main
+        label: "Bio, посилання, Media, Exhibitions"
+        file: "content/site.json"
+        fields:
+          - { label: "Bio — короткий (головна, hero)", name: heroBio, widget: text }
+          - { label: "Bio — повний (About)", name: aboutBio, widget: text }
+          - label: "Посилання"
+            name: links
+            widget: object
+            fields:
+              - { label: "Instagram (URL)", name: instagram, widget: string, required: false }
+              - { label: "OnlyFans (URL)", name: onlyfans, widget: string, required: false }
+              - { label: "Email", name: email, widget: string, required: false }
+              - { label: "Telegram (URL)", name: telegram, widget: string, required: false }
+          - label: "Media (список публікацій)"
+            name: media
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: "Рядок", name: text, widget: string }
+          - label: "Exhibitions (список виставок)"
+            name: exhibitions
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: "Рядок", name: text, widget: string }
+
+  # ---------------------------------------------------------------
+  - name: projects
+    label: "Проєкти (кейси) — головна"
+    delete: false
+    files:
+      - name: list
+        label: "6 блоків проєктів"
+        file: "content/projects.json"
+        fields:
+          - label: "Блоки"
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Заголовок", name: title, widget: string }
+              - { label: "Зображення (превʼю при наведенні)", name: image, widget: image }
+              - { label: "Посилання на сторінку (не міняти)", name: url, widget: string, required: false }
+              - { label: "Ключ блоку (НЕ міняти)", name: key, widget: string }
+
+  # ---------------------------------------------------------------
+  - name: shop
+    label: "Шоп (товари)"
+    delete: false
+    files:
+      - name: list
+        label: "Каталог товарів"
+        file: "content/shop.json"
+        fields:
+          - label: "Товари"
+            name: items
+            widget: list
+            summary: "{{fields.name}} — {{fields.price}}"
+            fields:
+              - { label: "Назва", name: name, widget: string }
+              - { label: "Ціна", name: price, widget: string }
+              - { label: "Видавець", name: publisher, widget: string, required: false }
+              - { label: "Характеристики (кожен рядок з нового рядка)", name: specs, widget: text }
+              - { label: "Обкладинка (у каталозі)", name: cover, widget: image }
+              - { label: "Головне фото (на сторінці товару)", name: hero, widget: image, required: false }
+              - { label: "Адреса сторінки (напр. /shop/my_book/)", name: url, widget: string }
+              - { label: "Slug (папка товару, НЕ міняти)", name: slug, widget: string }
