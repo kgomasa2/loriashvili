@@ -41,7 +41,7 @@ ul { list-style: none; }
 .d-band { position: absolute; left: -0.3rem; width: 144.6rem; }
 .d-band--about    { top: 82rem;    height: 109.8rem; background: var(--blue); }
 .d-band--projects { top: 274.8rem; height: 109.6rem; background: var(--red); }
-.d-band--shop     { top: 384.4rem; height: 102.2rem; background: var(--green); }
+.d-band--shop     { top: 384.4rem; height: 102.5rem; background: var(--green); }
 .d-band--telegram { top: 486.7rem; height: 86.4rem;  background: var(--blue); }
 .d-band--footer   { top: 573.1rem; height: 83.4rem;  background: var(--yellow); }
 
@@ -69,6 +69,16 @@ ul { list-style: none; }
 [data-cycle] img.on { opacity: 1; }
 
 .d-h { position: absolute; color: var(--grey); white-space: nowrap; line-height: 1; }
+/* hover: smoothly cycle the site palette (never the yellow background) */
+@keyframes hero-hue {
+  0%   { color: var(--red); }
+  25%  { color: var(--blue); }
+  50%  { color: var(--green); }
+  75%  { color: var(--grey-d); }
+  100% { color: var(--red); }
+}
+.d-h span { transition: color 0.45s ease; }
+.d-h:hover span { animation: hero-hue 2.6s linear infinite; }
 .d-h i {
   position: absolute; font-family: var(--arial); font-style: normal; text-transform: none;
   font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); line-height: 1.7rem;
@@ -105,8 +115,17 @@ ul { list-style: none; }
 .d-h--about-label { left: 16.1rem; top: 178.2rem; font-family: "Casino", cursive; font-size: 5.481rem; letter-spacing: -0.11rem; line-height: 5.5rem; color: var(--yellow); text-transform: uppercase; }
 .d-h--about-label i { left: 15rem; top: 0; color: var(--yellow); }
 
-/* ---------------- GARDEN ---------------- */
-.d-garden { position: absolute; left: 0.1rem; top: 191.8rem; width: 143.9rem; height: 83rem; object-fit: cover; }
+/* ---------------- GARDEN (full-bleed swipeable carousel) ---------------- */
+.d-garden { position: absolute; left: -0.3rem; top: 191.8rem; width: 144.6rem; height: 83rem; overflow: hidden; }
+[data-garden] .garden-track { display: flex; height: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
+[data-garden] .garden-track::-webkit-scrollbar { display: none; }
+[data-garden] .garden-slide { flex: 0 0 100%; width: 100%; height: 100%; scroll-snap-align: start; }
+[data-garden] .garden-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.garden-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 6rem; height: 6rem; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.82); color: var(--red); border: 0; border-radius: 50%; font-family: var(--arial); font-size: 4rem; line-height: 1; cursor: pointer; opacity: 0; transition: opacity 0.25s ease; }
+.d-garden:hover .garden-nav { opacity: 1; }
+.garden-nav:hover { background: #fff; }
+.garden-nav--prev { left: 2.4rem; }
+.garden-nav--next { right: 2.4rem; }
 
 /* ---------------- PROJECTS ---------------- */
 .d-proj-label { position: absolute; left: 0; top: 283.5rem; width: 144rem; font-family: "e-Ukraine Head", sans-serif; font-weight: 500; font-size: 4.59rem; letter-spacing: -0.367rem; line-height: 5.5rem; color: var(--blue); text-transform: uppercase; text-align: center; }
@@ -121,7 +140,7 @@ ul { list-style: none; }
 .d-p--japan   { top: 314.6rem; font-family: "Babylonica", cursive; font-size: 16.581rem; letter-spacing: -0.497rem; line-height: 13.3rem; }
 .d-p--ukraine { top: 326.5rem; font-family: "Cochin", serif; font-size: 16.452rem; letter-spacing: -0.494rem; line-height: 13.2rem; }
 .d-p--strip   { top: 341.5rem; font-family: "Casino", cursive; font-size: 17.383rem; letter-spacing: -0.521rem; line-height: 13.9rem; }
-.d-p--feet    { top: 350rem;   font-family: "Beau Rivage", cursive; font-size: 20rem; letter-spacing: -0.6rem; line-height: 14rem; text-transform: none; }
+.d-p--feet    { top: 352.4rem; font-family: "Beau Rivage", cursive; font-size: 20rem; letter-spacing: -0.6rem; line-height: 14rem; text-transform: none; }
 .d-p--boyz span::before, .d-p--only span::before { height: 0.82em; }
 .d-p--japan span::before { height: 0.6em; top: 44%; }
 .d-p--feet span::before  { height: 0.62em; top: 46%; }
@@ -141,7 +160,8 @@ ul { list-style: none; }
 /* horizontally scrollable card carousel */
 .d-cards { position: absolute; top: 413.8rem; left: 2.7rem; width: 138.6rem; height: 58rem; padding: 1rem 0; display: flex; align-items: flex-start; gap: 2.3rem; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; scrollbar-color: var(--yellow) transparent; }
 .d-cards::-webkit-scrollbar { height: 0.8rem; }
-.d-cards::-webkit-scrollbar-thumb { background: var(--yellow); }
+.d-cards::-webkit-scrollbar-thumb { background: var(--yellow); border-radius: 0; }
+.d-cards::-webkit-scrollbar-track { background: transparent; border-radius: 0; }
 .d-card { position: relative; flex: 0 0 53.5rem; width: 53.5rem; height: 55.14rem; background: var(--grey); cursor: pointer; }
 /* green ring drawn outside the box so the grey plate never shrinks on hover */
 .d-card:hover { box-shadow: 0 0 0 0.7rem var(--green); }
@@ -256,8 +276,8 @@ ul { list-style: none; }
   .m-exh { font-family: "Beau Rivage", cursive; font-size: 9rem; line-height: 0.88; color: var(--red); margin-top: 2.5rem; text-align: center; }
   .m-list { font-family: var(--arial); font-size: 1.6rem; line-height: 1.05; margin-top: 1.5rem; text-align: center; }
   .m-list li { margin-bottom: 0.5rem; }
-  /* GARDEN */
-  .m-garden { width: 100%; height: 42rem; object-fit: cover; }
+  /* GARDEN (swipeable carousel) */
+  .m-garden { width: 100%; height: 42rem; overflow: hidden; }
 
   /* PROJECTS */
   .m-projects { background: var(--red); padding: 3rem 1.5rem 4rem; text-align: center; }
@@ -325,9 +345,9 @@ ul { list-style: none; }
 .cms-gallery .cms-g { display: block; }
 .cms-gallery .cms-g img { display: block; width: 100%; height: auto; }
 
-/* --- preset: stack (large centered column) --- */
-.cms-gallery[data-layout="stack"] { display: flex; flex-direction: column; align-items: center; gap: 6rem; width: 144rem; }
-.cms-gallery[data-layout="stack"] .cms-g { width: 100rem; max-width: 92%; }
+/* --- preset: stack (full-width vertical ribbon, Figma 157-176) --- */
+.cms-gallery[data-layout="stack"] { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; width: 134.3rem; max-width: 96%; }
+.cms-gallery[data-layout="stack"] .cms-g { width: 100%; }
 
 /* --- preset: grid (two-column masonry) --- */
 .cms-gallery[data-layout="grid"] { column-count: 2; column-gap: 5rem; width: 122rem; max-width: 92%; }

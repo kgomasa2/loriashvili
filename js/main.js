@@ -58,7 +58,7 @@
         layers[back].classList.add("on");
         layers[front].classList.remove("on");
         front = back;
-      }, 3200);
+      }, 1920);   /* 40% faster image change */
     }, offset);
   }
 
@@ -80,7 +80,8 @@
         var remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10;
         var fs = parseFloat(getComputedStyle(target).fontSize) || 0;
         var plateTop = h.offsetTop + h.offsetHeight / 2 - fs * 0.42;
-        photo.style.top = (plateTop - photo.offsetHeight - remPx * 0.4) + "px";
+        // sit the preview flush against the plate's top edge (no gap)
+        photo.style.top = (plateTop - photo.offsetHeight + remPx * 0.1) + "px";
         photo.classList.add("show");
         h.classList.add("active");
       });
@@ -109,6 +110,29 @@
       img.style.setProperty("--r", (Math.random() * 24 - 12) + "deg");
       band.appendChild(img);
       setTimeout(function () { img.remove(); }, 1100);
+    });
+  }
+
+  /* ---- 4b. garden carousel (arrows + wheel, native touch/drag swipe) ---- */
+  function initGarden() {
+    document.querySelectorAll("[data-garden]").forEach(function (car) {
+      var track = car.querySelector(".garden-track");
+      if (!track) return;
+      function step(dir) { track.scrollBy({ left: dir * track.clientWidth, behavior: "smooth" }); }
+      var prev = car.querySelector(".garden-nav--prev");
+      var next = car.querySelector(".garden-nav--next");
+      if (prev) prev.addEventListener("click", function () { step(-1); });
+      if (next) next.addEventListener("click", function () { step(1); });
+      /* vertical wheel over the carousel scrolls it horizontally */
+      track.addEventListener("wheel", function (e) {
+        if (!e.deltaY) return;
+        var max = track.scrollWidth - track.clientWidth;
+        if (max <= 1) return;
+        var atStart = track.scrollLeft <= 0, atEnd = track.scrollLeft >= max - 1;
+        if ((e.deltaY < 0 && atStart) || (e.deltaY > 0 && atEnd)) return;
+        track.scrollLeft += e.deltaY;
+        e.preventDefault();
+      }, { passive: false });
     });
   }
 
@@ -247,17 +271,61 @@
     document.body.appendChild(btn);
   }
 
+  /* ---- 11. footer wordmark stretch + bounce on overscroll past the bottom ---- */
+  function initFooterStretch() {
+    var marks = document.querySelectorAll('[class$="foot-sofiya"], [class$="foot-word"]');
+    if (!marks.length) return;
+    marks.forEach(function (m) { m.style.transformOrigin = "center bottom"; m.style.willChange = "transform"; });
+    var cur = 0, active = false, relTimer = null;
+    function atBottom() {
+      return window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    }
+    function set(s, spring) {
+      marks.forEach(function (m) {
+        m.style.transition = spring ? "transform 0.8s cubic-bezier(0.16,1.55,0.36,1)" : "none";
+        m.style.transform = "scaleY(" + (1 + s) + ")";
+      });
+    }
+    function release() { active = false; cur = 0; set(0, true); }
+    window.addEventListener("wheel", function (e) {
+      if (e.deltaY > 0 && atBottom()) {
+        active = true;
+        cur = Math.min(0.35, cur + e.deltaY * 0.0011);   /* stretch a bit, capped */
+        set(cur, false);
+        clearTimeout(relTimer);
+        relTimer = setTimeout(release, 110);              /* let go -> springy bounce back */
+      } else if (active && e.deltaY < 0) {
+        clearTimeout(relTimer);
+        release();
+      }
+    }, { passive: true });
+    /* touch: pull past the bottom on phones */
+    var startY = 0;
+    window.addEventListener("touchstart", function (e) { startY = e.touches[0].clientY; }, { passive: true });
+    window.addEventListener("touchmove", function (e) {
+      var dy = startY - e.touches[0].clientY;
+      if (dy > 0 && atBottom()) {
+        active = true;
+        cur = Math.min(0.35, dy * 0.0016);
+        set(cur, false);
+      }
+    }, { passive: true });
+    window.addEventListener("touchend", function () { if (active) release(); }, { passive: true });
+  }
+
   /* ---- boot ---- */
   function boot() {
     document.querySelectorAll("[data-scramble]").forEach(initScramble);
     document.querySelectorAll("[data-cycle]").forEach(function (el, k) { initCycle(el, k * 800); });
     initProjects();
+    initGarden();
     initBurger();
     initNewsletter();
     initHScroll();
     initClickThrough();
     initFit();
     initInclusive();
+    initFooterStretch();
     document.querySelectorAll(".d-band--telegram, .m-telegram").forEach(initTrail);
   }
 
