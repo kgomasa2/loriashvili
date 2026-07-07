@@ -70,7 +70,7 @@ ul { list-style: none; }
 
 .d-h { position: absolute; color: var(--grey); white-space: nowrap; line-height: 1; }
 .d-h i {
-  position: absolute; font-family: var(--arial); font-style: normal;
+  position: absolute; font-family: var(--arial); font-style: normal; text-transform: none;
   font-size: 1.8rem; letter-spacing: -0.054rem; color: var(--red); line-height: 1.7rem;
 }
 .d-h--exh   { left: 6rem;    top: 24.9rem; font-family: "Beau Rivage", cursive; font-size: 14.786rem; letter-spacing: -0.444rem; line-height: 19.8rem; }
@@ -360,8 +360,8 @@ ul { list-style: none; }
    White background + black text everywhere; photos keep colour,
    decorative marks/logos are rendered solid black.
    ============================================================ */
-.incl-toggle { position: fixed; right: 1.6rem; bottom: 1.6rem; z-index: 210; width: 5rem; height: 5rem; display: flex; align-items: center; justify-content: center; padding: 0; background: #fff; border: 0.2rem solid #000; border-radius: 50%; color: #000; cursor: pointer; box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.25); }
-.incl-toggle svg { width: 3.2rem; height: 3.2rem; display: block; }
+.incl-toggle { position: fixed; right: 1.6rem; bottom: 1.6rem; z-index: 210; width: 3.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: center; padding: 0; background: #fff; border: 0.2rem solid #000; border-radius: 50%; color: #000; cursor: pointer; }
+.incl-toggle svg { width: 2.24rem; height: 2.24rem; display: block; }
 .incl-toggle:hover { background: #000; color: #fff; }
 .incl-toggle[aria-pressed="true"] { background: #000; color: #fff; }
 
