@@ -75,9 +75,12 @@
       var target = h.querySelector("span") || h;
       target.addEventListener("mouseenter", function () {
         img.src = h.getAttribute("data-img");
-        // sit the preview just above the green plate of the hovered heading
+        // the green plate is centred on the text (~0.8em tall); sit the preview
+        // directly above the plate's top edge, with only a hair of a gap
         var remPx = parseFloat(getComputedStyle(document.documentElement).fontSize) || 10;
-        photo.style.top = (h.offsetTop - photo.offsetHeight - remPx * 2) + "px";
+        var fs = parseFloat(getComputedStyle(target).fontSize) || 0;
+        var plateTop = h.offsetTop + h.offsetHeight / 2 - fs * 0.42;
+        photo.style.top = (plateTop - photo.offsetHeight - remPx * 0.4) + "px";
         photo.classList.add("show");
         h.classList.add("active");
       });
