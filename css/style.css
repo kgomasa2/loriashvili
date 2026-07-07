@@ -360,7 +360,7 @@ ul { list-style: none; }
    White background + black text everywhere; photos keep colour,
    decorative marks/logos are rendered solid black.
    ============================================================ */
-.incl-toggle { position: fixed; right: 1.6rem; bottom: 1.6rem; z-index: 210; width: 3.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: center; padding: 0; background: #fff; border: 0.2rem solid #000; border-radius: 50%; color: #000; cursor: pointer; }
+.incl-toggle { position: fixed; right: 1.6rem; bottom: 1.6rem; z-index: 210; width: 3.5rem; height: 3.5rem; display: flex; align-items: center; justify-content: center; padding: 0; background: #fff; border: 0.2rem solid #000; border-radius: 0; color: #000; cursor: pointer; }
 .incl-toggle svg { width: 2.24rem; height: 2.24rem; display: block; }
 .incl-toggle:hover { background: #000; color: #fff; }
 .incl-toggle[aria-pressed="true"] { background: #000; color: #fff; }
@@ -378,6 +378,6 @@ body.inclusive .d-fbp, body.inclusive .m-fbp, body.inclusive .a-fbp,
 body.inclusive .d-about-s, body.inclusive .a-about-s,
 body.inclusive .d-foot-sofiya, body.inclusive .m-foot-sofiya, body.inclusive .a-foot-sofiya, body.inclusive .p-foot-sofiya, body.inclusive .s-foot-sofiya,
 body.inclusive .d-foot-word, body.inclusive .m-foot-word, body.inclusive .a-foot-word, body.inclusive .p-foot-word, body.inclusive .s-foot-word { filter: grayscale(1) contrast(1.4) !important; }
-/* keep the toggle itself styled */
-body.inclusive .incl-toggle { background: #fff !important; color: #000 !important; border-color: #000 !important; }
-body.inclusive .incl-toggle:hover { background: #000 !important; color: #fff !important; }
+/* toggle stays styled; pressed (inclusive on) shows the inverted black square */
+body.inclusive .incl-toggle { background: #000 !important; color: #fff !important; border-color: #000 !important; }
+body.inclusive .incl-toggle:hover { background: #fff !important; color: #000 !important; }
