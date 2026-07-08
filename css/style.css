@@ -262,15 +262,15 @@ ul { list-style: none; }
 
   /* HERO */
   .m-hero { background: var(--yellow); padding: 2.5rem 2rem 3.5rem; text-align: center; }
-  .m-monogram { width: 19rem; height: auto; margin: 0 auto 1.4rem; }
+  .m-monogram { width: 12.7rem; height: auto; margin: 0 auto 1.4rem; }
   .m-menu { display: flex; flex-direction: column; gap: 0.05rem; text-align: center; }
   .m-menu a { position: relative; display: block; color: var(--grey); line-height: 0.85; }
   .m-menu a i { display: none; }
-  .m-menu__exh   span { font-family: "Beau Rivage", cursive; font-size: 8.4rem; }
-  .m-menu__shop  span { font-family: "Bitcount Prop Single", monospace; font-size: 7.9rem; text-transform: uppercase; letter-spacing: -0.2rem; }
-  .m-menu__proj  span { font-family: "EB Garamond SC", serif; font-size: 6rem; text-transform: uppercase; letter-spacing: -0.3rem; }
-  .m-menu__media span { font-family: "Bangers", cursive; font-size: 9rem; text-transform: uppercase; }
-  .m-menu__tg    span { font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 5.5rem; text-transform: uppercase; }
+  .m-menu__exh   span { font-family: "Beau Rivage", cursive; font-size: 9.7rem; }
+  .m-menu__shop  span { font-family: "Bitcount Prop Single", monospace; font-size: 9.1rem; text-transform: uppercase; letter-spacing: -0.2rem; }
+  .m-menu__proj  span { font-family: "EB Garamond SC", serif; font-size: 6.9rem; text-transform: uppercase; letter-spacing: -0.3rem; }
+  .m-menu__media span { font-family: "Bangers", cursive; font-size: 10.35rem; text-transform: uppercase; }
+  .m-menu__tg    span { font-family: "Compagnon", sans-serif; font-weight: 300; font-size: 6.3rem; text-transform: uppercase; }
   .m-hero-photo { width: 60%; height: 16rem; overflow: hidden; position: relative; margin: 2rem auto 1.4rem; }
   .m-links { display: flex; justify-content: center; gap: 2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); }
   .m-hero-bio { margin-top: 1.2rem; font-family: var(--arial); font-size: 1.6rem; color: var(--red); line-height: 0.95; text-align: center; }
