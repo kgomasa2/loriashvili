@@ -225,11 +225,11 @@ ul { list-style: none; }
 .nl-backdrop.open .nl-pop { transform: scale(1); }
 .nl-pop__logo  { width: 112px; height: auto; }
 .nl-pop__title { margin-top: 10px; width: 100%; font-family: "EB Garamond SC", serif; font-size: 58px; letter-spacing: -4px; line-height: 0.74; color: var(--red); text-transform: uppercase; }
-.nl-pop__text  { margin-top: 16px; width: 66%; font-family: var(--arial); font-size: 13px; letter-spacing: -0.35px; line-height: 1.35; color: var(--red); }
+.nl-pop__text  { margin-top: 16px; width: 66%; font-family: var(--arial); font-size: 13px; letter-spacing: -0.35px; line-height: 1.08; color: var(--red); }
 .nl-pop__form  { width: 100%; margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-.nl-pop__input { width: 84%; height: 88px; border: 0; border-radius: 44px; background: #fff; text-align: center; font-family: var(--arial); font-size: 15px; letter-spacing: -0.35px; color: var(--red); outline: none; }
+.nl-pop__input { width: 90%; height: 88px; border: 0; border-radius: 44px; background: #fff; text-align: center; font-family: var(--arial); font-size: 15px; letter-spacing: -0.35px; color: var(--red); outline: none; }
 .nl-pop__input::placeholder { color: #9F9F9F; }
-.nl-pop__btn   { width: 84%; height: 88px; border: 0; border-radius: 44px; background: var(--red); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
+.nl-pop__btn   { width: 90%; height: 88px; border: 0; border-radius: 44px; background: var(--red); color: var(--green); font-family: "Benzin", sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.5px; text-transform: uppercase; cursor: pointer; white-space: nowrap; }
 .nl-pop__btn:hover { background: #d81f2a; }
 
 
