@@ -224,7 +224,7 @@ ul { list-style: none; }
 .nl-pop { width: clamp(320px, 94vw, 540px); max-height: 96vh; overflow: auto; background: var(--green); border-radius: 300px; padding: 70px 9% 78px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 1.4rem 4rem rgba(0,0,0,0.28); transform: scale(0.9); transition: transform 0.3s ease; }
 .nl-backdrop.open .nl-pop { transform: scale(1); }
 .nl-pop__logo  { width: 112px; height: auto; }
-.nl-pop__title { margin-top: 10px; width: 100%; font-family: "EB Garamond SC", serif; font-size: 58px; letter-spacing: -4px; line-height: 0.92; color: var(--red); text-transform: uppercase; }
+.nl-pop__title { margin-top: 10px; width: 100%; font-family: "EB Garamond SC", serif; font-size: 58px; letter-spacing: -4px; line-height: 0.74; color: var(--red); text-transform: uppercase; }
 .nl-pop__text  { margin-top: 16px; width: 66%; font-family: var(--arial); font-size: 13px; letter-spacing: -0.35px; line-height: 1.35; color: var(--red); }
 .nl-pop__form  { width: 100%; margin-top: 22px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
 .nl-pop__input { width: 84%; height: 88px; border: 0; border-radius: 44px; background: #fff; text-align: center; font-family: var(--arial); font-size: 15px; letter-spacing: -0.35px; color: var(--red); outline: none; }
